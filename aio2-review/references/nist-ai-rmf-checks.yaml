@@ -1,0 +1,466 @@
+# NIST AI Risk Management Framework (AI RMF 1.0) — Check Definitions
+# Derived from NIST AI RMF Core + GenAI Profile (AI 600-1)
+# Source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/
+# License: Public Domain (US Government work)
+
+metadata:
+  framework: "NIST AI RMF"
+  version: "1.0"
+  last_verified: "2026-04-20"
+  genai_profile_version: "AI 600-1"
+  source_urls:
+    - "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    - "https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook"
+    - "https://airc.nist.gov/Docs/1"
+
+checks:
+
+  # ============================================================
+  # GOVERN — Cross-cutting risk management culture and policies
+  # ============================================================
+
+  - id: "GOVERN-1.1"
+    function: "Govern"
+    category: "Govern 1: Policies, processes, procedures, and practices"
+    subcategory: "Legal and regulatory requirements"
+    description: "Legal and regulatory requirements involving AI are understood, managed, and documented."
+    severity: "HIGH"
+    assessment_methods: ["code", "interactive"]
+    code_patterns: ["compliance", "regulatory", "legal", "GDPR", "EU AI Act", "policy"]
+    interactive_question: "Are legal and regulatory requirements involving AI understood, managed, and documented for this solution?"
+    remediation: "Establish a compliance register mapping applicable AI regulations to the solution. Document how each requirement is addressed."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-1-1"
+
+  - id: "GOVERN-1.2"
+    function: "Govern"
+    category: "Govern 1: Policies, processes, procedures, and practices"
+    subcategory: "Trustworthy AI characteristics in policies"
+    description: "The characteristics of trustworthy AI are integrated into organizational policies, processes, procedures, and practices."
+    severity: "HIGH"
+    assessment_methods: ["interactive"]
+    interactive_question: "Are trustworthy AI characteristics (fairness, transparency, accountability, safety, privacy, security) integrated into organizational policies governing this solution?"
+    remediation: "Develop or update organizational AI policies to explicitly address each trustworthy AI characteristic defined in the NIST AI RMF."
+    documentation_url: "https://airc.nist.gov/airmf-resources/airmf/3-sec-characteristics"
+
+  - id: "GOVERN-1.3"
+    function: "Govern"
+    category: "Govern 1: Policies, processes, procedures, and practices"
+    subcategory: "Risk tolerance-based activity levels"
+    description: "Processes are in place to determine the needed level of risk management activities based on the organization's risk tolerance."
+    severity: "MEDIUM"
+    assessment_methods: ["interactive"]
+    interactive_question: "Has the organization defined its AI risk tolerance and determined the level of risk management activities needed for this solution?"
+    remediation: "Define organizational AI risk tolerance levels and map them to specific risk management activities for different AI system categories."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-1-3"
+
+  - id: "GOVERN-1.4"
+    function: "Govern"
+    category: "Govern 1: Policies, processes, procedures, and practices"
+    subcategory: "Transparent risk management process"
+    description: "The risk management process and its outcomes are established through transparent policies, procedures, and other controls based on organizational risk priorities."
+    severity: "MEDIUM"
+    assessment_methods: ["interactive"]
+    interactive_question: "Is the AI risk management process for this solution established through transparent, documented policies and controls aligned to organizational risk priorities?"
+    remediation: "Document the AI risk management process (roles, decision points, escalation, outcomes) in transparent policies tied to organizational risk priorities, and make them accessible to relevant AI actors."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-1-4"
+
+  - id: "GOVERN-1.5"
+    function: "Govern"
+    category: "Govern 1: Policies, processes, procedures, and practices"
+    subcategory: "Ongoing monitoring and periodic review"
+    description: "Ongoing monitoring and periodic review of the risk management process and its outcomes are planned, with organizational roles and responsibilities clearly defined."
+    severity: "HIGH"
+    assessment_methods: ["interactive"]
+    interactive_question: "Is there a planned schedule for periodic review of AI risk management processes, with clear roles and responsibilities assigned?"
+    remediation: "Establish a review cadence (quarterly or semi-annual) for AI risk management processes with assigned owners and documented outcomes."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-1-5"
+
+  - id: "GOVERN-1.6"
+    function: "Govern"
+    category: "Govern 1: Policies, processes, procedures, and practices"
+    subcategory: "AI system inventory"
+    description: "Mechanisms are in place to inventory AI systems and are resourced according to organizational risk priorities."
+    severity: "MEDIUM"
+    assessment_methods: ["cloud", "interactive"]
+    cli_commands: ["aws bedrock list-custom-models --region <REGION> --output json", "aws bedrock-agent list-agents --region <REGION> --output json"]
+    interactive_question: "Does the organization maintain an inventory of all AI systems, including this solution, with risk classifications?"
+    remediation: "Create and maintain a centralized AI system inventory that includes system purpose, risk level, data types, deployment status, and responsible teams."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-1-6"
+
+  - id: "GOVERN-1.7"
+    function: "Govern"
+    category: "Govern 1: Policies, processes, procedures, and practices"
+    subcategory: "Decommissioning processes"
+    description: "Processes and procedures are in place for decommissioning and phasing out AI systems safely."
+    severity: "MEDIUM"
+    assessment_methods: ["interactive"]
+    interactive_question: "Are there documented processes for safely decommissioning this AI solution if needed, including data handling and user notification?"
+    remediation: "Document a decommissioning plan covering data retention/deletion, user notification, dependency management, and rollback procedures."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-1-7"
+
+  - id: "GOVERN-2.1"
+    function: "Govern"
+    category: "Govern 2: Accountability structures"
+    subcategory: "Roles and responsibilities"
+    description: "Roles and responsibilities and lines of communication related to mapping, measuring, and managing AI risks are documented and clear."
+    severity: "HIGH"
+    assessment_methods: ["interactive"]
+    interactive_question: "Are roles and responsibilities for AI risk management clearly documented and communicated for this solution's team?"
+    remediation: "Create a RACI matrix for AI risk management activities covering development, deployment, monitoring, and incident response."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-2-1"
+
+  - id: "GOVERN-2.2"
+    function: "Govern"
+    category: "Govern 2: Accountability structures"
+    subcategory: "AI risk management training"
+    description: "The organization's personnel and partners receive AI risk management training."
+    severity: "MEDIUM"
+    assessment_methods: ["interactive"]
+    interactive_question: "Have team members working on this solution received AI risk management training appropriate to their roles?"
+    remediation: "Implement AI risk management training programs tailored to different roles (developers, operators, business stakeholders)."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-2-2"
+
+  - id: "GOVERN-2.3"
+    function: "Govern"
+    category: "Govern 2: Accountability structures"
+    subcategory: "Executive leadership responsibility"
+    description: "Executive leadership takes responsibility for decisions about risks associated with AI system development and deployment."
+    severity: "HIGH"
+    assessment_methods: ["interactive"]
+    interactive_question: "Has executive leadership formally accepted responsibility for AI risk decisions related to this solution?"
+    remediation: "Establish executive sign-off processes for AI system deployment decisions, with documented risk acceptance."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-2-3"
+
+  - id: "GOVERN-4.3"
+    function: "Govern"
+    category: "Govern 4: Culture of AI risk communication"
+    subcategory: "AI testing and incident sharing"
+    description: "Organizational practices are in place to enable AI testing, identification of incidents, and information sharing."
+    severity: "HIGH"
+    assessment_methods: ["code", "cloud", "interactive"]
+    code_patterns: ["test", "spec", "__tests__", "evaluation", "benchmark"]
+    cli_commands: ["aws cloudwatch describe-alarms --region <REGION> --output json"]
+    interactive_question: "Are there established practices for AI testing, incident identification, and information sharing for this solution?"
+    remediation: "Implement AI-specific testing practices, incident tracking, and cross-team information sharing mechanisms."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-4-3"
+
+  - id: "GOVERN-6.1"
+    function: "Govern"
+    category: "Govern 6: Third-party AI risks"
+    subcategory: "Third-party risk policies"
+    description: "Policies and procedures are in place that address AI risks associated with third-party entities, including IP rights."
+    severity: "HIGH"
+    assessment_methods: ["code", "interactive"]
+    code_patterns: ["license", "third-party", "vendor", "external", "api-key", "model-id"]
+    interactive_question: "Are there policies addressing risks from third-party AI components (foundation models, APIs, data) used in this solution, including IP considerations?"
+    remediation: "Document all third-party AI dependencies, assess their risks, and establish contractual and technical controls."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-6-1"
+
+  - id: "GOVERN-6.2"
+    function: "Govern"
+    category: "Govern 6: Third-party AI risks"
+    subcategory: "Third-party contingency processes"
+    description: "Contingency processes are in place to handle failures or incidents in third-party data or AI systems deemed high-risk."
+    severity: "HIGH"
+    assessment_methods: ["code", "interactive"]
+    code_patterns: ["fallback", "retry", "circuit-breaker", "backup", "failover"]
+    interactive_question: "Are contingency processes in place for handling failures in third-party AI services (e.g., foundation model API outages) used by this solution?"
+    remediation: "Develop contingency plans for third-party AI service failures including fallback models, cached responses, and graceful degradation."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-6-2"
+
+  # ============================================================
+  # MAP — Context establishment and risk identification
+  # ============================================================
+
+  - id: "MAP-1.1"
+    function: "Map"
+    category: "Map 1: Context is established and understood"
+    subcategory: "Intended purposes and deployment context"
+    description: "Intended purposes, beneficial uses, context-specific laws, norms, expectations, and prospective deployment settings are understood and documented."
+    severity: "HIGH"
+    assessment_methods: ["code", "interactive"]
+    code_patterns: ["README", "purpose", "objective", "use-case", "instruction", "system_prompt"]
+    interactive_question: "Are the intended purposes, target users, and deployment context of this AI solution documented, including potential positive and negative impacts?"
+    remediation: "Create a solution purpose document covering intended use cases, target users, deployment context, and anticipated impacts."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/map/#map-1-1"
+
+  - id: "MAP-1.6"
+    function: "Map"
+    category: "Map 1: Context is established and understood"
+    subcategory: "System requirements with socio-technical considerations"
+    description: "System requirements are elicited from relevant AI actors. Design decisions take socio-technical implications into account."
+    severity: "MEDIUM"
+    assessment_methods: ["code", "interactive"]
+    code_patterns: ["requirement", "constraint", "guardrail", "boundary", "limit"]
+    interactive_question: "Do the system requirements for this solution address socio-technical implications, including impacts on different user groups?"
+    remediation: "Review and update system requirements to include socio-technical considerations such as accessibility, equity, and user impact."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/map/#map-1-6"
+
+  - id: "MAP-2.1"
+    function: "Map"
+    category: "Map 2: AI system categorization"
+    subcategory: "Tasks and methods defined"
+    description: "The specific tasks and methods used to implement the tasks that the AI system will support are defined."
+    severity: "MEDIUM"
+    assessment_methods: ["code", "interactive"]
+    code_patterns: ["classifier", "generative", "recommender", "agent", "flow", "chain", "RAG"]
+    interactive_question: "Are the specific AI tasks (classification, generation, retrieval, agent orchestration) and methods used by this solution clearly defined and documented?"
+    remediation: "Document the AI methods and task types used, including model architectures, retrieval strategies, and orchestration patterns."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/map/#map-2-1"
+
+  - id: "MAP-2.2"
+    function: "Map"
+    category: "Map 2: AI system categorization"
+    subcategory: "Knowledge limits and human oversight"
+    description: "Information about the AI system's knowledge limits and how output may be utilized and overseen by humans is documented."
+    severity: "HIGH"
+    assessment_methods: ["code", "interactive"]
+    code_patterns: ["disclaimer", "limitation", "confidence", "uncertainty", "human-in-the-loop", "approval"]
+    interactive_question: "Are the AI system's knowledge limits documented, and is it clear how humans oversee and utilize the system's output?"
+    remediation: "Document known limitations, knowledge boundaries, and the human oversight model (human-in-the-loop, human-on-the-loop, or human-in-command)."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/map/#map-2-2"
+
+  - id: "MAP-3.5"
+    function: "Map"
+    category: "Map 3: AI capabilities and expected benefits/costs"
+    subcategory: "Human oversight processes"
+    description: "Processes for human oversight are defined, assessed, and documented in accordance with organizational policies."
+    severity: "HIGH"
+    assessment_methods: ["code", "interactive"]
+    code_patterns: ["confirm", "approval", "review", "human", "override", "escalat"]
+    interactive_question: "Are human oversight processes defined and documented for this solution, including when and how humans can intervene or override AI decisions?"
+    remediation: "Define and document human oversight mechanisms including intervention triggers, escalation paths, and override procedures."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/map/#map-3-5"
+
+  - id: "MAP-4.1"
+    function: "Map"
+    category: "Map 4: Risks and benefits mapped for all components"
+    subcategory: "Third-party component risk mapping"
+    description: "Approaches for mapping AI technology and legal risks of components, including third-party data or software, are in place and documented."
+    severity: "MEDIUM"
+    assessment_methods: ["code", "interactive"]
+    code_patterns: ["dependency", "package.json", "requirements.txt", "pom.xml", "license"]
+    interactive_question: "Have AI technology and legal risks been mapped for all components of this solution, including third-party models, data, and libraries?"
+    remediation: "Conduct a component-level risk assessment covering all third-party AI models, datasets, and software dependencies."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/map/#map-4-1"
+
+  - id: "MAP-5.1"
+    function: "Map"
+    category: "Map 5: Impacts characterized"
+    subcategory: "Impact likelihood and magnitude"
+    description: "Likelihood and magnitude of each identified impact based on expected use are identified and documented."
+    severity: "MEDIUM"
+    assessment_methods: ["interactive"]
+    interactive_question: "Have the likelihood and magnitude of potential impacts (both beneficial and harmful) of this AI solution been assessed and documented?"
+    remediation: "Conduct an impact assessment documenting potential harms and benefits, their likelihood, magnitude, and affected populations."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/map/#map-5-1"
+
+  # ============================================================
+  # MEASURE — Quantitative and qualitative risk assessment
+  # ============================================================
+
+  - id: "MEASURE-1.1"
+    function: "Measure"
+    category: "Measure 1: Appropriate methods and metrics"
+    subcategory: "Risk measurement approaches selected"
+    description: "Approaches and metrics for measurement of AI risks are selected for implementation starting with the most significant risks."
+    severity: "HIGH"
+    assessment_methods: ["code", "interactive"]
+    code_patterns: ["metric", "measure", "evaluate", "benchmark", "score", "accuracy", "precision", "recall"]
+    interactive_question: "Have specific metrics and measurement approaches been selected to assess the most significant AI risks for this solution?"
+    remediation: "Define measurable risk metrics (accuracy, fairness, robustness, latency) and implement measurement processes prioritized by risk significance."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-1-1"
+
+  - id: "MEASURE-2.1"
+    function: "Measure"
+    category: "Measure 2: Trustworthy characteristics evaluated"
+    subcategory: "TEVV documentation"
+    description: "Test sets, metrics, and details about the tools used during test, evaluation, verification, and validation (TEVV) are documented."
+    severity: "HIGH"
+    assessment_methods: ["code", "interactive"]
+    code_patterns: ["test", "eval", "dataset", "ground-truth", "golden", "benchmark", "jest", "pytest"]
+    interactive_question: "Are test sets, evaluation metrics, and TEVV tools documented for this AI solution?"
+    remediation: "Document all test datasets, evaluation metrics, and TEVV tools used. Include dataset characteristics, metric definitions, and tool versions."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-2-1"
+
+  - id: "MEASURE-2.4"
+    function: "Measure"
+    category: "Measure 2: Trustworthy characteristics evaluated"
+    subcategory: "Production monitoring"
+    description: "The functionality and behavior of the AI system and its components are monitored when in production."
+    severity: "HIGH"
+    assessment_methods: ["cloud", "interactive"]
+    cli_commands: ["aws cloudwatch describe-alarms --region <REGION> --output json", "aws bedrock get-model-invocation-logging-configuration --region <REGION> --output json"]
+    interactive_question: "Is the AI system's functionality and behavior actively monitored in production, including model performance, drift, and anomalies?"
+    remediation: "Implement production monitoring covering model performance metrics, data drift detection, output quality tracking, and anomaly alerting."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-2-4"
+
+  - id: "MEASURE-2.6"
+    function: "Measure"
+    category: "Measure 2: Trustworthy characteristics evaluated"
+    subcategory: "Safety risk evaluation"
+    description: "The AI system is evaluated regularly for safety risks. The system can fail safely, particularly if made to operate beyond its knowledge limits."
+    severity: "HIGH"
+    assessment_methods: ["code", "cloud", "interactive"]
+    code_patterns: ["guardrail", "safety", "content-filter", "block", "deny", "restrict"]
+    cli_commands: ["aws bedrock list-guardrails --region <REGION> --output json"]
+    interactive_question: "Is this AI solution regularly evaluated for safety risks, and can it fail safely when operating beyond its knowledge limits?"
+    remediation: "Implement safety evaluation processes including adversarial testing, boundary testing, and graceful failure mechanisms (guardrails, fallbacks)."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-2-6"
+
+  - id: "MEASURE-2.7"
+    function: "Measure"
+    category: "Measure 2: Trustworthy characteristics evaluated"
+    subcategory: "Security and resilience"
+    description: "AI system security and resilience are evaluated and documented."
+    severity: "HIGH"
+    assessment_methods: ["cloud", "interactive"]
+    cli_commands: ["aws iam list-attached-role-policies --role-name <ROLE_NAME> --output json", "aws ec2 describe-vpc-endpoints --region <REGION> --output json"]
+    interactive_question: "Have the security and resilience of this AI solution been evaluated, including prompt injection resistance, data poisoning defenses, and adversarial robustness?"
+    remediation: "Conduct security evaluations covering prompt injection, data poisoning, model extraction, and adversarial input testing. Document findings and mitigations."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-2-7"
+
+  - id: "MEASURE-2.9"
+    function: "Measure"
+    category: "Measure 2: Trustworthy characteristics evaluated"
+    subcategory: "Explainability and interpretability"
+    description: "The AI model is explained, validated, and documented, and AI system output is interpreted within its context."
+    severity: "MEDIUM"
+    assessment_methods: ["code", "interactive"]
+    code_patterns: ["trace", "reasoning", "explain", "attribution", "citation", "source"]
+    interactive_question: "Is the AI model's decision-making process explainable, and are outputs interpreted within their intended context with appropriate attribution?"
+    remediation: "Implement explainability mechanisms such as reasoning traces, source attribution, confidence scores, and decision documentation."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-2-9"
+
+  - id: "MEASURE-2.10"
+    function: "Measure"
+    category: "Measure 2: Trustworthy characteristics evaluated"
+    subcategory: "Privacy risk"
+    description: "Privacy risk of the AI system is examined and documented."
+    severity: "HIGH"
+    assessment_methods: ["code", "cloud", "interactive"]
+    code_patterns: ["PII", "personal", "encrypt", "anonymize", "redact", "sensitive"]
+    cli_commands: ["aws bedrock get-guardrail --guardrail-identifier <ID> --region <REGION> --output json"]
+    interactive_question: "Has the privacy risk of this AI solution been examined, including PII handling, data minimization, and user consent?"
+    remediation: "Conduct a privacy impact assessment. Implement PII detection/redaction, data minimization, encryption at rest and in transit, and consent mechanisms."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-2-10"
+
+  - id: "MEASURE-2.11"
+    function: "Measure"
+    category: "Measure 2: Trustworthy characteristics evaluated"
+    subcategory: "Fairness and bias"
+    description: "Fairness and bias are evaluated and results are documented."
+    severity: "MEDIUM"
+    assessment_methods: ["interactive"]
+    interactive_question: "Has this AI solution been evaluated for fairness and bias across different user groups, with results documented?"
+    remediation: "Conduct bias testing across demographic groups and use cases. Document findings, mitigations applied, and residual bias levels."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-2-11"
+
+  - id: "MEASURE-2.12"
+    function: "Measure"
+    category: "Measure 2: Trustworthy characteristics evaluated"
+    subcategory: "Environmental impact"
+    description: "Environmental impact and sustainability of AI model training and management activities are assessed and documented."
+    severity: "LOW"
+    assessment_methods: ["interactive"]
+    interactive_question: "Has the environmental impact of this AI solution's training and inference workloads been assessed (energy consumption, carbon footprint)?"
+    remediation: "Assess and document the environmental footprint of AI workloads. Consider energy-efficient regions, right-sized models, and carbon-aware scheduling."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-2-12"
+
+  - id: "MEASURE-3.1"
+    function: "Measure"
+    category: "Measure 3: Risk tracking mechanisms"
+    subcategory: "Risk tracking over time"
+    description: "Approaches, personnel, and documentation are in place to regularly identify and track existing, unanticipated, and emergent AI risks."
+    severity: "MEDIUM"
+    assessment_methods: ["interactive"]
+    interactive_question: "Are there mechanisms to regularly track and identify new or emergent AI risks for this solution over time?"
+    remediation: "Establish a risk register with regular review cycles to track existing risks, identify emergent risks, and document risk evolution."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-3-1"
+
+  # ============================================================
+  # MANAGE — Risk response, recovery, and communication
+  # ============================================================
+
+  - id: "MANAGE-1.1"
+    function: "Manage"
+    category: "Manage 1: AI risks prioritized and managed"
+    subcategory: "Go/no-go determination"
+    description: "A determination is made as to whether the AI system achieves its intended purposes and whether its development or deployment should proceed."
+    severity: "HIGH"
+    assessment_methods: ["interactive"]
+    interactive_question: "Was a formal go/no-go determination made before deploying this AI solution, based on whether it achieves its intended purposes within acceptable risk levels?"
+    remediation: "Implement a formal deployment gate process with documented go/no-go criteria based on risk assessment, performance benchmarks, and stakeholder approval."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/manage/#manage-1-1"
+
+  - id: "MANAGE-1.3"
+    function: "Manage"
+    category: "Manage 1: AI risks prioritized and managed"
+    subcategory: "High-priority risk responses"
+    description: "Responses to high-priority AI risks are developed, planned, and documented. Options include mitigating, transferring, avoiding, or accepting."
+    severity: "HIGH"
+    assessment_methods: ["interactive"]
+    interactive_question: "Have responses to the highest-priority AI risks been developed and documented, with clear mitigation, transfer, avoidance, or acceptance decisions?"
+    remediation: "For each high-priority risk, document the chosen response strategy (mitigate, transfer, avoid, accept) with specific action plans and owners."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/manage/#manage-1-3"
+
+  - id: "MANAGE-2.2"
+    function: "Manage"
+    category: "Manage 2: Strategies to maximize benefits and minimize impacts"
+    subcategory: "Sustain deployed AI value"
+    description: "Mechanisms are in place and applied to sustain the value of deployed AI systems."
+    severity: "MEDIUM"
+    assessment_methods: ["cloud", "interactive"]
+    cli_commands: ["aws cloudwatch describe-alarms --region <REGION> --output json"]
+    interactive_question: "Are mechanisms in place to sustain the value of this deployed AI solution over time (performance monitoring, retraining triggers, feedback loops)?"
+    remediation: "Implement value sustainment mechanisms including performance monitoring, automated retraining triggers, user feedback collection, and regular model evaluation."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/manage/#manage-2-2"
+
+  - id: "MANAGE-2.4"
+    function: "Manage"
+    category: "Manage 2: Strategies to maximize benefits and minimize impacts"
+    subcategory: "Disengage or deactivate mechanisms"
+    description: "Mechanisms are in place to supersede, disengage, or deactivate AI systems that demonstrate inconsistent performance or outcomes."
+    severity: "HIGH"
+    assessment_methods: ["code", "cloud", "interactive"]
+    code_patterns: ["kill-switch", "disable", "deactivate", "circuit-breaker", "fallback"]
+    cli_commands: ["aws bedrock-agent list-agent-aliases --agent-id <AGENT_ID> --region <REGION> --output json"]
+    interactive_question: "Are there mechanisms to quickly disengage or deactivate this AI solution if it demonstrates performance or outcomes inconsistent with intended use?"
+    remediation: "Implement kill-switch mechanisms, traffic routing controls (aliases/versions), and documented procedures for emergency deactivation."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/manage/#manage-2-4"
+
+  - id: "MANAGE-3.2"
+    function: "Manage"
+    category: "Manage 3: Third-party AI risks managed"
+    subcategory: "Pre-trained model monitoring"
+    description: "Pre-trained models used for development are monitored as part of regular AI system monitoring and maintenance."
+    severity: "MEDIUM"
+    assessment_methods: ["code", "cloud", "interactive"]
+    code_patterns: ["model-id", "modelId", "foundation-model", "anthropic", "amazon.titan"]
+    cli_commands: ["aws bedrock list-foundation-models --region <REGION> --output json"]
+    interactive_question: "Are the pre-trained foundation models used by this solution monitored for version changes, deprecation, and performance shifts?"
+    remediation: "Track foundation model versions, subscribe to provider change notifications, and test against new model versions before adoption."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/manage/#manage-3-2"
+
+  - id: "MANAGE-4.1"
+    function: "Manage"
+    category: "Manage 4: Risk treatments and communication plans"
+    subcategory: "Post-deployment monitoring and incident response"
+    description: "Post-deployment monitoring plans are implemented, including mechanisms for capturing user input, appeal and override, decommissioning, incident response, recovery, and change management."
+    severity: "HIGH"
+    assessment_methods: ["cloud", "interactive"]
+    cli_commands: ["aws cloudwatch describe-alarms --region <REGION> --output json", "aws bedrock get-model-invocation-logging-configuration --region <REGION> --output json"]
+    interactive_question: "Are post-deployment monitoring plans implemented for this solution, including incident response, recovery procedures, and change management?"
+    remediation: "Implement comprehensive post-deployment monitoring with incident response runbooks, recovery procedures, change management processes, and user feedback mechanisms."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/manage/#manage-4-1"
+
+  - id: "MANAGE-4.3"
+    function: "Manage"
+    category: "Manage 4: Risk treatments and communication plans"
+    subcategory: "Incident communication"
+    description: "Incidents and errors are communicated to relevant AI actors, including affected communities. Processes for tracking, responding to, and recovering from incidents are followed and documented."
+    severity: "HIGH"
+    assessment_methods: ["interactive"]
+    interactive_question: "Are there documented processes for communicating AI incidents and errors to relevant stakeholders and affected users?"
+    remediation: "Establish incident communication procedures including stakeholder notification templates, escalation paths, and post-incident review processes."
+    documentation_url: "https://airc.nist.gov/airmf-resources/playbook/manage/#manage-4-3"

@@ -1,0 +1,1625 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "last_updated": "2026-06-04",
+    "pillar_map_source": "references/pillar-to-check-map.md",
+    "note": "Title, description, display text, and documentation URL for each check are sourced at render time from the lens JSON files: generative-ai-lens.json, nist-ai-rmf-lens.json, finops-ai-lens.json."
+  },
+  "pillars": [
+    {
+      "id": "1",
+      "name": "Governance and Compliance",
+      "description": "Data cataloguing, lineage, GenAI operating boundaries, real-time governance, audit, responsible AI."
+    },
+    {
+      "id": "2",
+      "name": "Operational Reliability",
+      "description": "AgentOps, monitoring, evaluation, lifecycle, multi-agent observability."
+    },
+    {
+      "id": "3",
+      "name": "Data Access and Integration",
+      "description": "MCP servers, tool versioning, integration patterns, knowledge base connectivity."
+    },
+    {
+      "id": "4",
+      "name": "Cost Management",
+      "description": "Token economics, attribution, optimization, budget controls."
+    },
+    {
+      "id": "5",
+      "name": "Security and Forensics",
+      "description": "Forensics, audit, threat detection, prompt injection defence, credential security, zero-trust."
+    },
+    {
+      "id": "6",
+      "name": "Organisational Readiness",
+      "description": "Centre of Excellence, training, ROI, hosting decisions, Agent Registry."
+    }
+  ],
+  "checks": [
+    {
+      "check_id": "GENSEC02_BP01",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Security",
+      "canonical_owner": "WA:Security",
+      "severity": "HIGH",
+      "pillars": [
+        "1",
+        "5"
+      ],
+      "default_applicability": "always",
+      "source": "WA Security GENSEC02-BP01"
+    },
+    {
+      "check_id": "MEASURE-2.6",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Measure",
+      "canonical_owner": "NIST:Measure",
+      "severity": "HIGH",
+      "pillars": [
+        "1",
+        "2"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF MEASURE-2.6"
+    },
+    {
+      "check_id": "GENSEC03_BP01",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Security",
+      "canonical_owner": "WA:Security",
+      "severity": "HIGH",
+      "pillars": [
+        "1",
+        "5"
+      ],
+      "default_applicability": "always",
+      "source": "WA Security GENSEC03-BP01"
+    },
+    {
+      "check_id": "GENSEC01_BP04",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Security",
+      "canonical_owner": "WA:Security",
+      "severity": "HIGH",
+      "pillars": [
+        "1",
+        "5"
+      ],
+      "default_applicability": "always",
+      "source": "WA Security GENSEC01-BP04"
+    },
+    {
+      "check_id": "MAP-3.5",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Map",
+      "canonical_owner": "NIST:Map",
+      "severity": "HIGH",
+      "pillars": [
+        "1"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF MAP-3.5"
+    },
+    {
+      "check_id": "MAP-2.2",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Map",
+      "canonical_owner": "NIST:Map",
+      "severity": "HIGH",
+      "pillars": [
+        "1"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF MAP-2.2"
+    },
+    {
+      "check_id": "MANAGE-2.4",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Manage",
+      "canonical_owner": "NIST:Manage",
+      "severity": "HIGH",
+      "pillars": [
+        "2"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF MANAGE-2.4"
+    },
+    {
+      "check_id": "GOVERN-1.2",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Govern",
+      "canonical_owner": "NIST:Govern",
+      "severity": "HIGH",
+      "pillars": [
+        "1"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF GOVERN-1.2",
+      "requires_user_input": true
+    },
+    {
+      "check_id": "FIN-QBV-03",
+      "frameworks": [
+        "FinOps"
+      ],
+      "category": "Quantify Business Value",
+      "canonical_owner": "FinOps:Quantify Business Value",
+      "severity": "MEDIUM",
+      "pillars": [
+        "1",
+        "4",
+        "6"
+      ],
+      "default_applicability": "always",
+      "source": "FinOps for AI",
+      "requires_user_input": true
+    },
+    {
+      "check_id": "GENSEC05_BP01",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Security",
+      "canonical_owner": "WA:Security",
+      "severity": "CRITICAL",
+      "pillars": [
+        "1",
+        "5"
+      ],
+      "default_applicability": "always",
+      "source": "WA Security GENSEC05-BP01"
+    },
+    {
+      "check_id": "GENSEC01_BP01",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Security",
+      "canonical_owner": "WA:Security",
+      "severity": "HIGH",
+      "pillars": [
+        "5"
+      ],
+      "default_applicability": "always",
+      "source": "WA Security GENSEC01-BP01"
+    },
+    {
+      "check_id": "GENSEC01_BP03",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Security",
+      "canonical_owner": "WA:Security",
+      "severity": "HIGH",
+      "pillars": [
+        "5"
+      ],
+      "default_applicability": "always",
+      "source": "WA Security GENSEC01-BP03"
+    },
+    {
+      "check_id": "MEASURE-2.10",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Measure",
+      "canonical_owner": "NIST:Measure",
+      "severity": "HIGH",
+      "pillars": [
+        "1",
+        "5"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF MEASURE-2.10"
+    },
+    {
+      "check_id": "MEASURE-2.11",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Measure",
+      "canonical_owner": "NIST:Measure",
+      "severity": "MEDIUM",
+      "pillars": [
+        "1",
+        "6"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF MEASURE-2.11",
+      "requires_user_input": true
+    },
+    {
+      "check_id": "GENSEC04_BP02",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Security",
+      "canonical_owner": "WA:Security",
+      "severity": "HIGH",
+      "pillars": [
+        "5"
+      ],
+      "default_applicability": "always",
+      "source": "WA Security GENSEC04-BP02"
+    },
+    {
+      "check_id": "MEASURE-2.7",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Measure",
+      "canonical_owner": "NIST:Measure",
+      "severity": "HIGH",
+      "pillars": [
+        "5"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF MEASURE-2.7"
+    },
+    {
+      "check_id": "MEASURE-2.9",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Measure",
+      "canonical_owner": "NIST:Measure",
+      "severity": "MEDIUM",
+      "pillars": [
+        "5",
+        "6"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF MEASURE-2.9"
+    },
+    {
+      "check_id": "GOVERN-1.3",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Govern",
+      "canonical_owner": "NIST:Govern",
+      "severity": "MEDIUM",
+      "pillars": [
+        "1"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF GOVERN-1.3",
+      "requires_user_input": true
+    },
+    {
+      "check_id": "GOVERN-1.4",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Govern",
+      "canonical_owner": "NIST:Govern",
+      "severity": "MEDIUM",
+      "pillars": [
+        "1"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF GOVERN-1.4",
+      "requires_user_input": true
+    },
+    {
+      "check_id": "GENSEC06_BP01",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Security",
+      "canonical_owner": "WA:Security",
+      "severity": "MEDIUM",
+      "pillars": [
+        "1",
+        "5"
+      ],
+      "default_applicability": "custom-models",
+      "source": "WA Security GENSEC06-BP01"
+    },
+    {
+      "check_id": "GOVERN-1.1",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Govern",
+      "canonical_owner": "NIST:Govern",
+      "severity": "HIGH",
+      "pillars": [
+        "1"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF GOVERN-1.1"
+    },
+    {
+      "check_id": "GOVERN-1.5",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Govern",
+      "canonical_owner": "NIST:Govern",
+      "severity": "HIGH",
+      "pillars": [
+        "1",
+        "2"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF GOVERN-1.5",
+      "requires_user_input": true
+    },
+    {
+      "check_id": "MANAGE-1.3",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Manage",
+      "canonical_owner": "NIST:Manage",
+      "severity": "HIGH",
+      "pillars": [
+        "1"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF MANAGE-1.3",
+      "requires_user_input": true
+    },
+    {
+      "check_id": "GENOPS03_BP01",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Ops Excellence",
+      "canonical_owner": "WA:Ops Excellence",
+      "severity": "HIGH",
+      "pillars": [
+        "2"
+      ],
+      "default_applicability": "always",
+      "source": "WA Ops Excellence GENOPS03-BP01"
+    },
+    {
+      "check_id": "GENREL04_BP01",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Reliability",
+      "canonical_owner": "WA:Reliability",
+      "severity": "MEDIUM",
+      "pillars": [
+        "2"
+      ],
+      "default_applicability": "always",
+      "source": "WA Reliability GENREL04-BP01"
+    },
+    {
+      "check_id": "GENSEC04_BP01",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Security",
+      "canonical_owner": "WA:Security",
+      "severity": "MEDIUM",
+      "pillars": [
+        "2",
+        "5"
+      ],
+      "default_applicability": "always",
+      "source": "WA Security GENSEC04-BP01"
+    },
+    {
+      "check_id": "GENOPS02_BP01",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Ops Excellence",
+      "canonical_owner": "WA:Ops Excellence",
+      "severity": "HIGH",
+      "pillars": [
+        "2"
+      ],
+      "default_applicability": "always",
+      "source": "WA Ops Excellence GENOPS02-BP01"
+    },
+    {
+      "check_id": "GENOPS02_BP02",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Ops Excellence",
+      "canonical_owner": "WA:Ops Excellence",
+      "severity": "HIGH",
+      "pillars": [
+        "2"
+      ],
+      "default_applicability": "always",
+      "source": "WA Ops Excellence GENOPS02-BP02"
+    },
+    {
+      "check_id": "GENOPS03_BP02",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Ops Excellence",
+      "canonical_owner": "WA:Ops Excellence",
+      "severity": "HIGH",
+      "pillars": [
+        "2",
+        "5"
+      ],
+      "default_applicability": "always",
+      "source": "WA Ops Excellence GENOPS03-BP02"
+    },
+    {
+      "check_id": "GENPERF01_BP02",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Performance",
+      "canonical_owner": "WA:Performance",
+      "severity": "HIGH",
+      "pillars": [
+        "2"
+      ],
+      "default_applicability": "always",
+      "source": "WA Performance GENPERF01-BP02"
+    },
+    {
+      "check_id": "MEASURE-2.4",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Measure",
+      "canonical_owner": "NIST:Measure",
+      "severity": "HIGH",
+      "pillars": [
+        "2"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF MEASURE-2.4"
+    },
+    {
+      "check_id": "GENOPS01_BP01",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Ops Excellence",
+      "canonical_owner": "WA:Ops Excellence",
+      "severity": "HIGH",
+      "pillars": [
+        "2"
+      ],
+      "default_applicability": "always",
+      "source": "WA Ops Excellence GENOPS01-BP01"
+    },
+    {
+      "check_id": "GENPERF01_BP01",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Performance",
+      "canonical_owner": "WA:Performance",
+      "severity": "HIGH",
+      "pillars": [
+        "2"
+      ],
+      "default_applicability": "always",
+      "source": "WA Performance GENPERF01-BP01"
+    },
+    {
+      "check_id": "GOVERN-4.3",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Govern",
+      "canonical_owner": "NIST:Govern",
+      "severity": "HIGH",
+      "pillars": [
+        "1",
+        "2"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF GOVERN-4.3"
+    },
+    {
+      "check_id": "MEASURE-2.1",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Measure",
+      "canonical_owner": "NIST:Measure",
+      "severity": "HIGH",
+      "pillars": [
+        "2",
+        "5"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF MEASURE-2.1"
+    },
+    {
+      "check_id": "GENCOST05_BP01",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Cost",
+      "canonical_owner": "WA:Cost",
+      "severity": "HIGH",
+      "pillars": [
+        "2",
+        "4"
+      ],
+      "default_applicability": "agents",
+      "source": "WA Cost GENCOST05-BP01"
+    },
+    {
+      "check_id": "GENREL03_BP02",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Reliability",
+      "canonical_owner": "WA:Reliability",
+      "severity": "HIGH",
+      "pillars": [
+        "2",
+        "4"
+      ],
+      "default_applicability": "agents",
+      "source": "WA Reliability GENREL03-BP02"
+    },
+    {
+      "check_id": "GENREL04_BP02",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Reliability",
+      "canonical_owner": "WA:Reliability",
+      "severity": "MEDIUM",
+      "pillars": [
+        "2",
+        "6"
+      ],
+      "default_applicability": "always",
+      "source": "WA Reliability GENREL04-BP02"
+    },
+    {
+      "check_id": "GENOPS05_BP01",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Ops Excellence",
+      "canonical_owner": "WA:Ops Excellence",
+      "severity": "MEDIUM",
+      "pillars": [
+        "2",
+        "6"
+      ],
+      "default_applicability": "always",
+      "source": "WA Ops Excellence GENOPS05-BP01"
+    },
+    {
+      "check_id": "MANAGE-3.2",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Manage",
+      "canonical_owner": "NIST:Manage",
+      "severity": "MEDIUM",
+      "pillars": [
+        "2"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF MANAGE-3.2"
+    },
+    {
+      "check_id": "GENOPS04_BP01",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Ops Excellence",
+      "canonical_owner": "WA:Ops Excellence",
+      "severity": "HIGH",
+      "pillars": [
+        "2"
+      ],
+      "default_applicability": "always",
+      "source": "WA Ops Excellence GENOPS04-BP01"
+    },
+    {
+      "check_id": "GENOPS04_BP02",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Ops Excellence",
+      "canonical_owner": "WA:Ops Excellence",
+      "severity": "HIGH",
+      "pillars": [
+        "2"
+      ],
+      "default_applicability": "always",
+      "source": "WA Ops Excellence GENOPS04-BP02"
+    },
+    {
+      "check_id": "GENREL03_BP01",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Reliability",
+      "canonical_owner": "WA:Reliability",
+      "severity": "HIGH",
+      "pillars": [
+        "2"
+      ],
+      "default_applicability": "always",
+      "source": "WA Reliability GENREL03-BP01"
+    },
+    {
+      "check_id": "GOVERN-6.2",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Govern",
+      "canonical_owner": "NIST:Govern",
+      "severity": "HIGH",
+      "pillars": [
+        "1",
+        "2"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF GOVERN-6.2"
+    },
+    {
+      "check_id": "GENOPS01_BP02",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Ops Excellence",
+      "canonical_owner": "WA:Ops Excellence",
+      "severity": "HIGH",
+      "pillars": [
+        "2",
+        "6"
+      ],
+      "default_applicability": "always",
+      "source": "WA Ops Excellence GENOPS01-BP02"
+    },
+    {
+      "check_id": "MANAGE-2.2",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Manage",
+      "canonical_owner": "NIST:Manage",
+      "severity": "MEDIUM",
+      "pillars": [
+        "2",
+        "6"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF MANAGE-2.2"
+    },
+    {
+      "check_id": "GENOPS02_BP03",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Ops Excellence",
+      "canonical_owner": "WA:Ops Excellence",
+      "severity": "HIGH",
+      "pillars": [
+        "2"
+      ],
+      "default_applicability": "always",
+      "source": "WA Ops Excellence GENOPS02-BP03"
+    },
+    {
+      "check_id": "GENSUS01_BP01",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Sustainability",
+      "canonical_owner": "WA:Sustainability",
+      "severity": "LOW",
+      "pillars": [
+        "2"
+      ],
+      "default_applicability": "always",
+      "source": "WA Sustainability GENSUS01-BP01"
+    },
+    {
+      "check_id": "GENREL01_BP01",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Reliability",
+      "canonical_owner": "WA:Reliability",
+      "severity": "MEDIUM",
+      "pillars": [
+        "2"
+      ],
+      "default_applicability": "always",
+      "source": "WA Reliability GENREL01-BP01"
+    },
+    {
+      "check_id": "GENSEC01_BP02",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Security",
+      "canonical_owner": "WA:Security",
+      "severity": "HIGH",
+      "pillars": [
+        "5"
+      ],
+      "default_applicability": "always",
+      "source": "WA Security GENSEC01-BP02"
+    },
+    {
+      "check_id": "GENREL02_BP01",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Reliability",
+      "canonical_owner": "WA:Reliability",
+      "severity": "MEDIUM",
+      "pillars": [
+        "2"
+      ],
+      "default_applicability": "always",
+      "source": "WA Reliability GENREL02-BP01"
+    },
+    {
+      "check_id": "GOVERN-1.7",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Govern",
+      "canonical_owner": "NIST:Govern",
+      "severity": "MEDIUM",
+      "pillars": [
+        "2"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF GOVERN-1.7",
+      "requires_user_input": true
+    },
+    {
+      "check_id": "GENPERF02_BP01",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Performance",
+      "canonical_owner": "WA:Performance",
+      "severity": "HIGH",
+      "pillars": [
+        "2"
+      ],
+      "default_applicability": "always",
+      "source": "WA Performance GENPERF02-BP01"
+    },
+    {
+      "check_id": "GENREL05_BP01",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Reliability",
+      "canonical_owner": "WA:Reliability",
+      "severity": "MEDIUM",
+      "pillars": [
+        "2"
+      ],
+      "default_applicability": "multi-region",
+      "source": "WA Reliability GENREL05-BP01"
+    },
+    {
+      "check_id": "GENREL05_BP02",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Reliability",
+      "canonical_owner": "WA:Reliability",
+      "severity": "MEDIUM",
+      "pillars": [
+        "2",
+        "3"
+      ],
+      "default_applicability": "multi-region",
+      "source": "WA Reliability GENREL05-BP02"
+    },
+    {
+      "check_id": "GENREL05_BP03",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Reliability",
+      "canonical_owner": "WA:Reliability",
+      "severity": "MEDIUM",
+      "pillars": [
+        "2"
+      ],
+      "default_applicability": "multi-region",
+      "source": "WA Reliability GENREL05-BP03"
+    },
+    {
+      "check_id": "MANAGE-4.1",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Manage",
+      "canonical_owner": "NIST:Manage",
+      "severity": "HIGH",
+      "pillars": [
+        "2"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF MANAGE-4.1"
+    },
+    {
+      "check_id": "GENPERF04_BP02",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Performance",
+      "canonical_owner": "WA:Performance",
+      "severity": "MEDIUM",
+      "pillars": [
+        "3",
+        "4"
+      ],
+      "default_applicability": "knowledge-base",
+      "source": "WA Performance GENPERF04-BP02"
+    },
+    {
+      "check_id": "GENCOST04_BP01",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Cost",
+      "canonical_owner": "WA:Cost",
+      "severity": "LOW",
+      "pillars": [
+        "4"
+      ],
+      "default_applicability": "knowledge-base",
+      "source": "WA Cost GENCOST04-BP01"
+    },
+    {
+      "check_id": "GENPERF04_BP01",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Performance",
+      "canonical_owner": "WA:Performance",
+      "severity": "MEDIUM",
+      "pillars": [
+        "2",
+        "3"
+      ],
+      "default_applicability": "knowledge-base",
+      "source": "WA Performance GENPERF04-BP01"
+    },
+    {
+      "check_id": "GOVERN-6.1",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Govern",
+      "canonical_owner": "NIST:Govern",
+      "severity": "HIGH",
+      "pillars": [
+        "1",
+        "5"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF GOVERN-6.1"
+    },
+    {
+      "check_id": "MAP-4.1",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Map",
+      "canonical_owner": "NIST:Map",
+      "severity": "MEDIUM",
+      "pillars": [
+        "1",
+        "3"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF MAP-4.1"
+    },
+    {
+      "check_id": "MAP-1.1",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Map",
+      "canonical_owner": "NIST:Map",
+      "severity": "HIGH",
+      "pillars": [
+        "1",
+        "3"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF MAP-1.1"
+    },
+    {
+      "check_id": "MAP-2.1",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Map",
+      "canonical_owner": "NIST:Map",
+      "severity": "MEDIUM",
+      "pillars": [
+        "3"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF MAP-2.1"
+    },
+    {
+      "check_id": "GENCOST01_BP01",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Cost",
+      "canonical_owner": "WA:Cost",
+      "severity": "MEDIUM",
+      "pillars": [
+        "4"
+      ],
+      "default_applicability": "always",
+      "source": "WA Cost GENCOST01-BP01"
+    },
+    {
+      "check_id": "FIN-OPT-01",
+      "frameworks": [
+        "FinOps"
+      ],
+      "category": "Optimize Usage & Cost",
+      "canonical_owner": "FinOps:Optimize",
+      "severity": "HIGH",
+      "pillars": [
+        "4"
+      ],
+      "default_applicability": "always",
+      "source": "FinOps for AI"
+    },
+    {
+      "check_id": "GENPERF02_BP03",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Performance",
+      "canonical_owner": "WA:Performance",
+      "severity": "MEDIUM",
+      "pillars": [
+        "4",
+        "6"
+      ],
+      "default_applicability": "always",
+      "source": "WA Performance GENPERF02-BP03"
+    },
+    {
+      "check_id": "GENSUS03_BP01",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Sustainability",
+      "canonical_owner": "WA:Sustainability",
+      "severity": "LOW",
+      "pillars": [
+        "4"
+      ],
+      "default_applicability": "always",
+      "source": "WA Sustainability GENSUS03-BP01"
+    },
+    {
+      "check_id": "GENCOST03_BP01",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Cost",
+      "canonical_owner": "WA:Cost",
+      "severity": "MEDIUM",
+      "pillars": [
+        "4"
+      ],
+      "default_applicability": "always",
+      "source": "WA Cost GENCOST03-BP01"
+    },
+    {
+      "check_id": "FIN-OPT-02",
+      "frameworks": [
+        "FinOps"
+      ],
+      "category": "Optimize Usage & Cost",
+      "canonical_owner": "FinOps:Optimize",
+      "severity": "MEDIUM",
+      "pillars": [
+        "4"
+      ],
+      "default_applicability": "always",
+      "source": "FinOps for AI"
+    },
+    {
+      "check_id": "GENCOST03_BP03",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Cost",
+      "canonical_owner": "WA:Cost",
+      "severity": "MEDIUM",
+      "pillars": [
+        "4"
+      ],
+      "default_applicability": "always",
+      "source": "WA Cost GENCOST03-BP03"
+    },
+    {
+      "check_id": "FIN-OPT-03",
+      "frameworks": [
+        "FinOps"
+      ],
+      "category": "Optimize Usage & Cost",
+      "canonical_owner": "FinOps:Optimize",
+      "severity": "MEDIUM",
+      "pillars": [
+        "4"
+      ],
+      "default_applicability": "always",
+      "source": "FinOps for AI"
+    },
+    {
+      "check_id": "GENCOST03_BP04",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Cost",
+      "canonical_owner": "WA:Cost",
+      "severity": "LOW",
+      "pillars": [
+        "1",
+        "4"
+      ],
+      "default_applicability": "always",
+      "source": "WA Cost GENCOST03-BP04"
+    },
+    {
+      "check_id": "FIN-OPT-07",
+      "frameworks": [
+        "FinOps"
+      ],
+      "category": "Optimize Usage & Cost",
+      "canonical_owner": "FinOps:Optimize",
+      "severity": "MEDIUM",
+      "pillars": [
+        "1",
+        "4"
+      ],
+      "default_applicability": "always",
+      "source": "FinOps for AI"
+    },
+    {
+      "check_id": "GENCOST02_BP02",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Cost",
+      "canonical_owner": "WA:Cost",
+      "severity": "MEDIUM",
+      "pillars": [
+        "4"
+      ],
+      "default_applicability": "always",
+      "source": "WA Cost GENCOST02-BP02"
+    },
+    {
+      "check_id": "FIN-OPT-04",
+      "frameworks": [
+        "FinOps"
+      ],
+      "category": "Optimize Usage & Cost",
+      "canonical_owner": "FinOps:Optimize",
+      "severity": "HIGH",
+      "pillars": [
+        "4"
+      ],
+      "default_applicability": "sagemaker",
+      "source": "FinOps for AI"
+    },
+    {
+      "check_id": "FIN-UND-01",
+      "frameworks": [
+        "FinOps"
+      ],
+      "category": "Understand Usage & Cost",
+      "canonical_owner": "FinOps:Understand",
+      "severity": "HIGH",
+      "pillars": [
+        "4"
+      ],
+      "default_applicability": "always",
+      "source": "FinOps for AI"
+    },
+    {
+      "check_id": "FIN-UND-05",
+      "frameworks": [
+        "FinOps"
+      ],
+      "category": "Understand Usage & Cost",
+      "canonical_owner": "FinOps:Understand",
+      "severity": "MEDIUM",
+      "pillars": [
+        "4"
+      ],
+      "default_applicability": "always",
+      "source": "FinOps for AI"
+    },
+    {
+      "check_id": "FIN-UND-04",
+      "frameworks": [
+        "FinOps"
+      ],
+      "category": "Understand Usage & Cost",
+      "canonical_owner": "FinOps:Understand",
+      "severity": "HIGH",
+      "pillars": [
+        "4"
+      ],
+      "default_applicability": "always",
+      "source": "FinOps for AI"
+    },
+    {
+      "check_id": "FIN-UND-02",
+      "frameworks": [
+        "FinOps"
+      ],
+      "category": "Understand Usage & Cost",
+      "canonical_owner": "FinOps:Understand",
+      "severity": "HIGH",
+      "pillars": [
+        "4"
+      ],
+      "default_applicability": "always",
+      "source": "FinOps for AI"
+    },
+    {
+      "check_id": "FIN-MGT-02",
+      "frameworks": [
+        "FinOps"
+      ],
+      "category": "Manage the FinOps Practice",
+      "canonical_owner": "FinOps:Manage",
+      "severity": "HIGH",
+      "pillars": [
+        "4"
+      ],
+      "default_applicability": "always",
+      "source": "FinOps for AI"
+    },
+    {
+      "check_id": "FIN-QBV-01",
+      "frameworks": [
+        "FinOps"
+      ],
+      "category": "Quantify Business Value",
+      "canonical_owner": "FinOps:Quantify Business Value",
+      "severity": "HIGH",
+      "pillars": [
+        "4",
+        "6"
+      ],
+      "default_applicability": "always",
+      "source": "FinOps for AI",
+      "requires_user_input": true
+    },
+    {
+      "check_id": "FIN-QBV-02",
+      "frameworks": [
+        "FinOps"
+      ],
+      "category": "Quantify Business Value",
+      "canonical_owner": "FinOps:Quantify Business Value",
+      "severity": "MEDIUM",
+      "pillars": [
+        "4",
+        "6"
+      ],
+      "default_applicability": "always",
+      "source": "FinOps for AI",
+      "requires_user_input": true
+    },
+    {
+      "check_id": "GENCOST02_BP01",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Cost",
+      "canonical_owner": "WA:Cost",
+      "severity": "MEDIUM",
+      "pillars": [
+        "4"
+      ],
+      "default_applicability": "always",
+      "source": "WA Cost GENCOST02-BP01"
+    },
+    {
+      "check_id": "FIN-OPT-05",
+      "frameworks": [
+        "FinOps"
+      ],
+      "category": "Optimize Usage & Cost",
+      "canonical_owner": "FinOps:Optimize",
+      "severity": "MEDIUM",
+      "pillars": [
+        "4"
+      ],
+      "default_applicability": "always",
+      "source": "FinOps for AI"
+    },
+    {
+      "check_id": "GENCOST03_BP02",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Cost",
+      "canonical_owner": "WA:Cost",
+      "severity": "MEDIUM",
+      "pillars": [
+        "4"
+      ],
+      "default_applicability": "always",
+      "source": "WA Cost GENCOST03-BP02"
+    },
+    {
+      "check_id": "GENPERF02_BP02",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Performance",
+      "canonical_owner": "WA:Performance",
+      "severity": "MEDIUM",
+      "pillars": [
+        "2",
+        "4"
+      ],
+      "default_applicability": "always",
+      "source": "WA Performance GENPERF02-BP02"
+    },
+    {
+      "check_id": "FIN-UND-03",
+      "frameworks": [
+        "FinOps"
+      ],
+      "category": "Understand Usage & Cost",
+      "canonical_owner": "FinOps:Understand",
+      "severity": "MEDIUM",
+      "pillars": [
+        "4"
+      ],
+      "default_applicability": "always",
+      "source": "FinOps for AI"
+    },
+    {
+      "check_id": "FIN-MGT-03",
+      "frameworks": [
+        "FinOps"
+      ],
+      "category": "Manage the FinOps Practice",
+      "canonical_owner": "FinOps:Manage",
+      "severity": "MEDIUM",
+      "pillars": [
+        "4"
+      ],
+      "default_applicability": "always",
+      "source": "FinOps for AI",
+      "requires_user_input": true
+    },
+    {
+      "check_id": "FIN-MGT-04",
+      "frameworks": [
+        "FinOps"
+      ],
+      "category": "Manage the FinOps Practice",
+      "canonical_owner": "FinOps:Manage",
+      "severity": "LOW",
+      "pillars": [
+        "4",
+        "6"
+      ],
+      "default_applicability": "always",
+      "source": "FinOps for AI",
+      "requires_user_input": true
+    },
+    {
+      "check_id": "MEASURE-1.1",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Measure",
+      "canonical_owner": "NIST:Measure",
+      "severity": "HIGH",
+      "pillars": [
+        "1",
+        "5"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF MEASURE-1.1"
+    },
+    {
+      "check_id": "MAP-1.6",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Map",
+      "canonical_owner": "NIST:Map",
+      "severity": "MEDIUM",
+      "pillars": [
+        "1",
+        "5"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF MAP-1.6"
+    },
+    {
+      "check_id": "MAP-5.1",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Map",
+      "canonical_owner": "NIST:Map",
+      "severity": "MEDIUM",
+      "pillars": [
+        "1",
+        "5"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF MAP-5.1",
+      "requires_user_input": true
+    },
+    {
+      "check_id": "GOVERN-1.6",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Govern",
+      "canonical_owner": "NIST:Govern",
+      "severity": "MEDIUM",
+      "pillars": [
+        "1",
+        "6"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF GOVERN-1.6"
+    },
+    {
+      "check_id": "GOVERN-2.1",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Govern",
+      "canonical_owner": "NIST:Govern",
+      "severity": "HIGH",
+      "pillars": [
+        "1",
+        "6"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF GOVERN-2.1",
+      "requires_user_input": true
+    },
+    {
+      "check_id": "GOVERN-2.2",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Govern",
+      "canonical_owner": "NIST:Govern",
+      "severity": "MEDIUM",
+      "pillars": [
+        "6"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF GOVERN-2.2",
+      "requires_user_input": true
+    },
+    {
+      "check_id": "FIN-MGT-01",
+      "frameworks": [
+        "FinOps"
+      ],
+      "category": "Manage the FinOps Practice",
+      "canonical_owner": "FinOps:Manage",
+      "severity": "HIGH",
+      "pillars": [
+        "4",
+        "6"
+      ],
+      "default_applicability": "always",
+      "source": "FinOps for AI",
+      "requires_user_input": true
+    },
+    {
+      "check_id": "FIN-MGT-05",
+      "frameworks": [
+        "FinOps"
+      ],
+      "category": "Manage the FinOps Practice",
+      "canonical_owner": "FinOps:Manage",
+      "severity": "LOW",
+      "pillars": [
+        "4",
+        "6"
+      ],
+      "default_applicability": "always",
+      "source": "FinOps for AI",
+      "requires_user_input": true
+    },
+    {
+      "check_id": "GENPERF03_BP01",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Performance",
+      "canonical_owner": "WA:Performance",
+      "severity": "LOW",
+      "pillars": [
+        "2",
+        "6"
+      ],
+      "default_applicability": "always",
+      "source": "WA Performance GENPERF03-BP01"
+    },
+    {
+      "check_id": "GENSUS01_BP02",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Sustainability",
+      "canonical_owner": "WA:Sustainability",
+      "severity": "LOW",
+      "pillars": [
+        "4",
+        "6"
+      ],
+      "default_applicability": "always",
+      "source": "WA Sustainability GENSUS01-BP02"
+    },
+    {
+      "check_id": "FIN-OPT-06",
+      "frameworks": [
+        "FinOps"
+      ],
+      "category": "Optimize Usage & Cost",
+      "canonical_owner": "FinOps:Optimize",
+      "severity": "MEDIUM",
+      "pillars": [
+        "4",
+        "6"
+      ],
+      "default_applicability": "always",
+      "source": "FinOps for AI"
+    },
+    {
+      "check_id": "GOVERN-2.3",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Govern",
+      "canonical_owner": "NIST:Govern",
+      "severity": "HIGH",
+      "pillars": [
+        "1",
+        "6"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF GOVERN-2.3",
+      "requires_user_input": true
+    },
+    {
+      "check_id": "MANAGE-1.1",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Manage",
+      "canonical_owner": "NIST:Manage",
+      "severity": "HIGH",
+      "pillars": [
+        "1",
+        "6"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF MANAGE-1.1",
+      "requires_user_input": true
+    },
+    {
+      "check_id": "MEASURE-3.1",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Measure",
+      "canonical_owner": "NIST:Measure",
+      "severity": "MEDIUM",
+      "pillars": [
+        "1",
+        "6"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF MEASURE-3.1",
+      "requires_user_input": true
+    },
+    {
+      "check_id": "GENREL06_BP01",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Reliability",
+      "canonical_owner": "WA:Reliability",
+      "severity": "LOW",
+      "pillars": [
+        "2"
+      ],
+      "default_applicability": "distributed-training",
+      "source": "WA Reliability GENREL06-BP01"
+    },
+    {
+      "check_id": "GENSUS02_BP01",
+      "frameworks": [
+        "WA"
+      ],
+      "category": "Sustainability",
+      "canonical_owner": "WA:Sustainability",
+      "severity": "LOW",
+      "pillars": [
+        "2"
+      ],
+      "default_applicability": "always",
+      "source": "WA Sustainability GENSUS02-BP01"
+    },
+    {
+      "check_id": "MEASURE-2.12",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Measure",
+      "canonical_owner": "NIST:Measure",
+      "severity": "LOW",
+      "pillars": [
+        "2"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF MEASURE-2.12",
+      "requires_user_input": true
+    },
+    {
+      "check_id": "MANAGE-4.3",
+      "frameworks": [
+        "NIST"
+      ],
+      "category": "Manage",
+      "canonical_owner": "NIST:Manage",
+      "severity": "HIGH",
+      "pillars": [
+        "2"
+      ],
+      "default_applicability": "always",
+      "source": "NIST AI RMF MANAGE-4.3",
+      "requires_user_input": true
+    }
+  ]
+}

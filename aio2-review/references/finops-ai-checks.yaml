@@ -1,0 +1,283 @@
+# FinOps Foundation — FinOps for AI Check Definitions
+# Derived from FinOps Foundation AI Asset Library (FinOps for AI Working Group)
+# Source: https://www.finops.org/assets/ (filter: FinOps for AI)
+# License: CC BY 4.0
+
+metadata:
+  framework: "FinOps for AI"
+  version: "2025"
+  last_verified: "2026-04-20"
+  source_url: "https://www.finops.org/assets/"
+
+checks:
+
+  # ============================================================
+  # UNDERSTAND USAGE & COST
+  # ============================================================
+
+  - id: "FIN-UND-01"
+    domain: "Understand Usage & Cost"
+    capability: "Cost Visibility"
+    description: "AI workloads are identified, tagged, and tracked with granular cost attribution (per team, project, model, or use case)."
+    severity: "HIGH"
+    assessment_methods: ["code", "cloud", "interactive"]
+    code_patterns: ["tag", "label", "cost-center", "project", "team", "allocation"]
+    cli_commands: ["aws ce get-cost-and-usage --time-period Start=<START>,End=<END> --granularity DAILY --filter '{\"Dimensions\":{\"Key\":\"SERVICE\",\"Values\":[\"Amazon Bedrock\",\"Amazon SageMaker\"]}}' --output json"]
+    interactive_question: "Are AI workload costs tracked with granular attribution (per team, project, model, or use case) using structured tagging?"
+    remediation: "Implement structured tagging for all AI resources (e.g., AI_Project, AI_Team, AI_Model). Use AWS Cost Explorer or Cost and Usage Reports filtered by AI services."
+    maturity: "Crawl"
+    source_paper: "FinOps for AI Overview"
+    documentation_url: "https://www.finops.org/wg/finops-for-ai-overview/"
+
+  - id: "FIN-UND-02"
+    domain: "Understand Usage & Cost"
+    capability: "Token Usage Tracking"
+    description: "Token consumption (input and output) is tracked per model, per application, and per user or team."
+    severity: "HIGH"
+    assessment_methods: ["code", "cloud", "interactive"]
+    code_patterns: ["token", "usage", "inputTokens", "outputTokens", "tokenCount", "metering"]
+    cli_commands: ["aws bedrock get-model-invocation-logging-configuration --region <REGION> --output json"]
+    interactive_question: "Is token consumption (input and output tokens) tracked per model, per application, and per team?"
+    remediation: "Enable Bedrock model invocation logging to capture token usage. Build dashboards tracking input/output token ratios and costs per application."
+    maturity: "Crawl"
+    source_paper: "GenAI FinOps: How Token Pricing Really Works"
+    documentation_url: "https://www.finops.org/wg/genai-finops-how-token-pricing-really-works/"
+
+  - id: "FIN-UND-03"
+    domain: "Understand Usage & Cost"
+    capability: "Token Pricing Awareness"
+    description: "The team understands token pricing nuances including context window creep, input/output price asymmetry, and media-rich interaction cost multipliers."
+    severity: "MEDIUM"
+    assessment_methods: ["code", "interactive"]
+    code_patterns: ["maxTokens", "max_tokens", "context", "window", "truncat"]
+    interactive_question: "Does the team understand token pricing nuances such as context window creep, input/output price asymmetry, and how media-rich interactions multiply costs?"
+    remediation: "Educate teams on token pricing mechanics. Monitor context window growth over conversation turns. Set max token limits on responses."
+    maturity: "Walk"
+    source_paper: "GenAI FinOps: How Token Pricing Really Works"
+    documentation_url: "https://www.finops.org/wg/genai-finops-how-token-pricing-really-works/"
+
+  - id: "FIN-UND-04"
+    domain: "Understand Usage & Cost"
+    capability: "AI Cost and Usage Tracker"
+    description: "A dedicated AI cost and usage tracking mechanism is in place, providing real-time or near-real-time visibility into AI spend."
+    severity: "HIGH"
+    assessment_methods: ["cloud", "interactive"]
+    cli_commands: ["aws ce get-cost-and-usage --time-period Start=<START>,End=<END> --granularity DAILY --output json"]
+    interactive_question: "Is there a dedicated AI cost and usage tracking mechanism providing real-time or near-real-time visibility into AI spend?"
+    remediation: "Build an AI cost tracker using Cost Explorer APIs, CloudWatch metrics, and invocation logs. Create dashboards with daily/weekly cost trends."
+    maturity: "Walk"
+    source_paper: "How to Build a Generative AI Cost and Usage Tracker"
+    documentation_url: "https://www.finops.org/wg/how-to-build-a-generative-ai-cost-and-usage-tracker/"
+
+  - id: "FIN-UND-05"
+    domain: "Understand Usage & Cost"
+    capability: "AI Workload Identification"
+    description: "AI workloads are identified and distinguished from non-AI workloads using a combination of known services, manual tagging, and discovery rules."
+    severity: "MEDIUM"
+    assessment_methods: ["cloud", "interactive"]
+    cli_commands: ["aws bedrock-agent list-agents --region <REGION> --output json", "aws sagemaker list-endpoints --region <REGION> --output json"]
+    interactive_question: "Are AI workloads clearly identified and distinguished from non-AI workloads in cost reporting?"
+    remediation: "Use a combination of service-based identification (Bedrock, SageMaker), resource tagging, and discovery rules to classify AI workloads."
+    maturity: "Crawl"
+    source_paper: "Choosing an AI Approach and Infrastructure Strategy"
+    documentation_url: "https://www.finops.org/wg/choosing-an-ai-approach-and-infrastructure-strategy/"
+
+  # ============================================================
+  # QUANTIFY BUSINESS VALUE
+  # ============================================================
+
+  - id: "FIN-QBV-01"
+    domain: "Quantify Business Value"
+    capability: "AI Unit Economics"
+    description: "AI unit economics are defined and tracked (cost per query, cost per transaction, cost per user, or cost per business outcome)."
+    severity: "HIGH"
+    assessment_methods: ["interactive"]
+    interactive_question: "Are AI unit economics defined and tracked (e.g., cost per query, cost per transaction, cost per user, or cost per business outcome)?"
+    remediation: "Define AI unit metrics aligned to business outcomes. Track cost-per-query, cost-per-conversation, or cost-per-resolution alongside business KPIs."
+    maturity: "Walk"
+    source_paper: "Unlocking AI Business Value with FinOps"
+    documentation_url: "https://www.finops.org/wg/unlocking-ai-business-value-with-finops/"
+
+  - id: "FIN-QBV-02"
+    domain: "Quantify Business Value"
+    capability: "AI ROI Measurement"
+    description: "AI investments are measured against business value delivered, with clear ROI metrics at each lifecycle stage (concept, prototype, MVP, product)."
+    severity: "MEDIUM"
+    assessment_methods: ["interactive"]
+    interactive_question: "Is the ROI of this AI solution measured against business value delivered, with metrics appropriate to its lifecycle stage?"
+    remediation: "Implement phased ROI measurement: market sizing at concept stage, value measurement at prototype, ROI evaluation at MVP, and TCO analysis at product stage."
+    maturity: "Run"
+    source_paper: "Unlocking AI Business Value with FinOps"
+    documentation_url: "https://www.finops.org/wg/unlocking-ai-business-value-with-finops/"
+
+  - id: "FIN-QBV-03"
+    domain: "Quantify Business Value"
+    capability: "AI Investment Council"
+    description: "A cross-functional AI Investment Council or equivalent governance body aligns AI investments with strategic goals and ethical standards."
+    severity: "MEDIUM"
+    assessment_methods: ["interactive"]
+    interactive_question: "Is there a cross-functional AI Investment Council or governance body that aligns AI investments with strategic goals and reviews AI project value?"
+    remediation: "Establish an AI Investment Council with representatives from engineering, finance, product, and compliance to review AI project portfolios and investment decisions."
+    maturity: "Run"
+    source_paper: "Managing AI Value Using FinOps Practice Operations"
+    documentation_url: "https://www.finops.org/wg/managing-ai-value-finops-practice-operations/"
+
+  # ============================================================
+  # OPTIMIZE USAGE & COST
+  # ============================================================
+
+  - id: "FIN-OPT-01"
+    domain: "Optimize Usage & Cost"
+    capability: "Model Right-Sizing"
+    description: "The AI model selected is appropriate for the task complexity. Smaller models are used for simple tasks, larger models reserved for complex reasoning."
+    severity: "HIGH"
+    assessment_methods: ["code", "cloud"]
+    code_patterns: ["foundationModel", "model-id", "modelId", "anthropic", "titan", "haiku", "sonnet", "opus"]
+    cli_commands: ["aws bedrock-agent get-agent --agent-id <AGENT_ID> --region <REGION> --output json"]
+    remediation: "Benchmark smaller models (e.g., Haiku, Titan Lite) on representative queries. Use Bedrock Prompt Router to auto-route by complexity. Reserve large models for complex tasks."
+    maturity: "Walk"
+    source_paper: "Optimizing GenAI Usage: Cost, Performance, and Efficiency"
+    documentation_url: "https://www.finops.org/wg/optimizing-genai-usage/"
+
+  - id: "FIN-OPT-02"
+    domain: "Optimize Usage & Cost"
+    capability: "Prompt Optimization"
+    description: "Prompts are optimized for token efficiency — concise system prompts, minimal context window growth, and controlled response lengths."
+    severity: "MEDIUM"
+    assessment_methods: ["code", "interactive"]
+    code_patterns: ["maxTokens", "max_tokens", "system_prompt", "instruction", "truncat", "summariz"]
+    interactive_question: "Are prompts optimized for token efficiency, including concise system prompts, controlled context windows, and max token limits on responses?"
+    remediation: "Audit system prompts for verbosity. Set max token limits on responses. Implement context window management to prevent creep over conversation turns."
+    maturity: "Walk"
+    source_paper: "GenAI FinOps: How Token Pricing Really Works"
+    documentation_url: "https://www.finops.org/wg/genai-finops-how-token-pricing-really-works/"
+
+  - id: "FIN-OPT-03"
+    domain: "Optimize Usage & Cost"
+    capability: "Prompt Caching"
+    description: "Prompt caching is enabled for repeated or similar prompts to reduce redundant token processing costs."
+    severity: "MEDIUM"
+    assessment_methods: ["code", "cloud"]
+    code_patterns: ["cache", "caching", "promptCache", "cached"]
+    cli_commands: ["aws bedrock-agent get-agent --agent-id <AGENT_ID> --region <REGION> --output json"]
+    remediation: "Enable Bedrock prompt caching for system prompts and frequently repeated context. Monitor cache hit rates and cost savings."
+    maturity: "Walk"
+    source_paper: "Optimizing GenAI Usage: Cost, Performance, and Efficiency"
+    documentation_url: "https://www.finops.org/wg/optimizing-genai-usage/"
+
+  - id: "FIN-OPT-04"
+    domain: "Optimize Usage & Cost"
+    capability: "GPU/Compute Optimization"
+    description: "GPU and compute resources are right-sized, with utilization monitored and idle resources identified and addressed."
+    severity: "HIGH"
+    assessment_methods: ["cloud", "interactive"]
+    cli_commands: ["aws sagemaker describe-endpoint --endpoint-name <NAME> --region <REGION> --output json"]
+    interactive_question: "Are GPU and compute resources right-sized for AI workloads, with utilization monitored and idle resources addressed?"
+    remediation: "Monitor GPU utilization (target >60%). Implement auto-scaling, spot instances for training, and scheduled scaling for predictable inference patterns."
+    maturity: "Walk"
+    source_paper: "Optimizing GenAI Usage: Cost, Performance, and Efficiency"
+    documentation_url: "https://www.finops.org/wg/optimizing-genai-usage/"
+
+  - id: "FIN-OPT-05"
+    domain: "Optimize Usage & Cost"
+    capability: "Capacity Commitment Strategy"
+    description: "A capacity commitment strategy is in place, transitioning from pay-as-you-go to provisioned capacity where usage patterns justify it."
+    severity: "MEDIUM"
+    assessment_methods: ["cloud", "interactive"]
+    cli_commands: ["aws bedrock list-provisioned-model-throughputs --region <REGION> --output json"]
+    interactive_question: "Is there a capacity commitment strategy in place, using provisioned throughput or reserved capacity where usage patterns justify it?"
+    remediation: "Analyze usage patterns to identify candidates for provisioned throughput. Treat capacity commitments as strategic decisions, not just discount mechanisms."
+    maturity: "Run"
+    source_paper: "Navigating GenAI Capacity Options"
+    documentation_url: "https://www.finops.org/wg/genai-capacity-options/"
+
+  - id: "FIN-OPT-06"
+    domain: "Optimize Usage & Cost"
+    capability: "Infrastructure Strategy Alignment"
+    description: "The AI infrastructure model (fully managed, partially managed, or self-managed) is aligned with the organization's FinOps maturity and technical readiness."
+    severity: "MEDIUM"
+    assessment_methods: ["cloud", "interactive"]
+    cli_commands: ["aws bedrock-agent list-agents --region <REGION> --output json", "aws sagemaker list-endpoints --region <REGION> --output json"]
+    interactive_question: "Is the AI infrastructure model (fully managed like Bedrock, partially managed like SageMaker, or self-managed) aligned with the organization's FinOps maturity?"
+    remediation: "Evaluate infrastructure choices against the Crawl/Walk/Run maturity model. Start with fully managed for experimentation, move to partially managed for scaling."
+    maturity: "Walk"
+    source_paper: "Choosing an AI Approach and Infrastructure Strategy"
+    documentation_url: "https://www.finops.org/wg/choosing-an-ai-approach-and-infrastructure-strategy/"
+
+  - id: "FIN-OPT-07"
+    domain: "Optimize Usage & Cost"
+    capability: "Content Pre-filtering"
+    description: "Content pre-filtering or guardrails are used to block unnecessary or harmful requests before they consume model inference tokens."
+    severity: "MEDIUM"
+    assessment_methods: ["code", "cloud"]
+    code_patterns: ["guardrail", "filter", "block", "content-filter", "pre-filter"]
+    cli_commands: ["aws bedrock list-guardrails --region <REGION> --output json"]
+    remediation: "Configure Bedrock Guardrails with content filters on input to block harmful or off-topic requests before they reach the model, saving inference costs."
+    maturity: "Walk"
+    source_paper: "Optimizing GenAI Usage: Cost, Performance, and Efficiency"
+    documentation_url: "https://www.finops.org/wg/optimizing-genai-usage/"
+
+  # ============================================================
+  # MANAGE THE FINOPS PRACTICE
+  # ============================================================
+
+  - id: "FIN-MGT-01"
+    domain: "Manage the FinOps Practice"
+    capability: "AI Cost Ownership"
+    description: "Clear ownership and accountability for AI spending is established — by team, project, or department."
+    severity: "HIGH"
+    assessment_methods: ["interactive"]
+    interactive_question: "Is there clear ownership and accountability for AI spending, with designated cost owners per team, project, or department?"
+    remediation: "Assign AI cost owners per team or project. Implement chargeback or showback models for AI spend. Include AI costs in team budget reviews."
+    maturity: "Crawl"
+    source_paper: "Managing AI Value Using FinOps Practice Operations"
+    documentation_url: "https://www.finops.org/wg/managing-ai-value-finops-practice-operations/"
+
+  - id: "FIN-MGT-02"
+    domain: "Manage the FinOps Practice"
+    capability: "AI Budget Controls"
+    description: "Budget controls, quotas, and anomaly detection are in place for AI spending to prevent unexpected cost overruns."
+    severity: "HIGH"
+    assessment_methods: ["cloud", "interactive"]
+    cli_commands: ["aws budgets describe-budgets --account-id <ACCOUNT_ID> --output json"]
+    interactive_question: "Are budget controls, spending quotas, and anomaly detection in place for AI workloads to prevent unexpected cost overruns?"
+    remediation: "Set AWS Budgets with alerts for AI services. Implement per-team or per-project quotas. Enable Cost Anomaly Detection for AI service categories."
+    maturity: "Crawl"
+    source_paper: "FinOps for AI Overview"
+    documentation_url: "https://www.finops.org/wg/finops-for-ai-overview/"
+
+  - id: "FIN-MGT-03"
+    domain: "Manage the FinOps Practice"
+    capability: "AI Cost Forecasting"
+    description: "AI cost forecasting accounts for the impact of optimization initiatives and the non-linear scaling characteristics of AI workloads."
+    severity: "MEDIUM"
+    assessment_methods: ["interactive"]
+    interactive_question: "Does AI cost forecasting account for optimization impacts, non-linear scaling, and the volatility of AI workload costs?"
+    remediation: "Build AI-specific forecasting models that account for token volume growth, model changes, optimization savings, and seasonal usage patterns."
+    maturity: "Run"
+    source_paper: "Effect of Optimization on AI Forecasting"
+    documentation_url: "https://www.finops.org/wg/effect-of-optimization-on-ai-forecasting/"
+
+  - id: "FIN-MGT-04"
+    domain: "Manage the FinOps Practice"
+    capability: "Incremental Funding Model"
+    description: "AI projects use incremental funding models with frequent fail-fast reviews rather than large upfront commitments."
+    severity: "LOW"
+    assessment_methods: ["interactive"]
+    interactive_question: "Do AI projects use incremental funding with frequent review gates (fail-fast approach) rather than large upfront budget commitments?"
+    remediation: "Implement stage-gated funding for AI projects: small initial budgets for experimentation, with incremental increases tied to demonstrated value."
+    maturity: "Run"
+    source_paper: "Managing AI Value Using FinOps Practice Operations"
+    documentation_url: "https://www.finops.org/wg/managing-ai-value-finops-practice-operations/"
+
+  - id: "FIN-MGT-05"
+    domain: "Manage the FinOps Practice"
+    capability: "AI FinOps Education"
+    description: "Teams building and operating AI solutions are trained on FinOps best practices specific to AI workloads."
+    severity: "LOW"
+    assessment_methods: ["interactive"]
+    interactive_question: "Have teams building and operating this AI solution received training on FinOps best practices specific to AI workloads (token economics, GPU optimization, cost attribution)?"
+    remediation: "Provide AI-specific FinOps training covering token economics, GPU cost management, model selection trade-offs, and cost attribution practices."
+    maturity: "Walk"
+    source_paper: "FinOps for AI Overview"
+    documentation_url: "https://www.finops.org/wg/finops-for-ai-overview/"

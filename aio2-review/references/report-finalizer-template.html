@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIO2 Multi-Framework Review — [SOLUTION_NAME] | [DATE]</title>
+<style>
+  :root {
+    --critical: #8b0000; --high: #dc3545; --medium: #fd7e14; --low: #0d6efd;
+    --pass: #198754; --fail: #dc3545; --partial: #fd7e14; --na: #6c757d;
+    --bg: #f8f9fa; --card-bg: #ffffff; --text: #212529; --text-muted: #6c757d;
+    --border: #dee2e6; --header-bg: #1a1a2e; --header-accent: #e94560;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 0; line-height: 1.6; font-size: 15px; }
+  a { color: #0d6efd; text-decoration: none; } a:hover { text-decoration: underline; }
+  .header { background: var(--header-bg); color: #fff; padding: 2.5rem 2rem 2rem; position: relative; overflow: hidden; }
+  .header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--header-accent), #0f3460, var(--header-accent)); }
+  .header h1 { margin: 0 0 0.25rem; font-size: 1.75rem; font-weight: 700; letter-spacing: -0.5px; }
+  .header .subtitle { color: #a0a0b8; font-size: 0.95rem; }
+  .header .badge-row { margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .header .badge-row span { display: inline-block; padding: 0.2rem 0.65rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600; }
+  .badge-full { background: var(--header-accent); color: #fff; }
+  .badge-date { background: rgba(255,255,255,0.12); color: #ccc; }
+  .badge-framework { background: #0f3460; color: #fff; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 1.5rem; }
+  .section { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; }
+  .section h2 { margin: 0 0 1rem; font-size: 1.3rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--border); }
+  .meta-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  .meta-table th, .meta-table td { padding: 0.5rem 0.75rem; text-align: left; border-bottom: 1px solid var(--border); }
+  .meta-table th { width: 200px; font-weight: 600; color: var(--text-muted); background: #f1f3f5; }
+  .meta-table td code { background: #e9ecef; padding: 0.15rem 0.4rem; border-radius: 3px; font-size: 0.85rem; }
+  .summary-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  .summary-table th, .summary-table td { padding: 0.5rem 0.75rem; text-align: center; border: 1px solid var(--border); }
+  .summary-table th { background: #f1f3f5; font-weight: 600; }
+  .summary-table td:first-child, .summary-table td:nth-child(2) { text-align: left; font-weight: 500; }
+  .summary-table tr:last-child { font-weight: 700; background: #f8f9fa; }
+  .pass-cell { color: var(--pass); } .fail-cell { color: var(--fail); font-weight: 700; } .partial-cell { color: var(--partial); } .na-cell { color: var(--na); } .pending-cell { color: #6f42c1; font-weight: 700; }
+  .risk-no-risk { color: var(--pass); font-weight: 700; }
+  .risk-low-risk { color: var(--low); font-weight: 700; }
+  .risk-medium-risk { color: var(--partial); font-weight: 700; }
+  .risk-high-risk { color: var(--fail); font-weight: 700; }
+  .risk-not-assessed { color: var(--na); font-weight: 600; font-style: italic; }
+  .finding-about { color: var(--text-muted); font-size: 0.88rem; border-left: 3px solid var(--border); padding-left: 0.75rem; margin: 0.4rem 0 0.6rem 0; }
+  .badge { display: inline-block; padding: 0.15rem 0.55rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #fff; vertical-align: middle; }
+  .badge-critical { background: var(--critical); } .badge-high { background: var(--high); } .badge-medium { background: var(--medium); color: #000; } .badge-low { background: var(--low); }
+  .badge-pass { background: var(--pass); } .badge-fail { background: var(--fail); } .badge-partial { background: var(--partial); color: #000; } .badge-na { background: var(--na); }
+  .badge-pending { background: #6f42c1; }
+  .finding-card { border: 1px solid var(--border); border-left: 5px solid var(--na); border-radius: 6px; padding: 1rem 1.25rem; margin-bottom: 1rem; background: var(--card-bg); }
+  .finding-card.severity-critical { border-left-color: var(--critical); } .finding-card.severity-high { border-left-color: var(--high); }
+  .finding-card.severity-medium { border-left-color: var(--medium); } .finding-card.severity-low { border-left-color: var(--low); }
+  .finding-card.status-pass { border-left-color: var(--pass); } .finding-card.status-na { border-left-color: var(--na); }
+  .finding-card.status-pending { border-left-color: #6f42c1; }
+  .pillar-heading { margin-top: 2rem; margin-bottom: 0.5rem; }
+  .pillar-heading h2 { color: #fff; background: var(--header-bg); padding: 0.8rem 1rem; border-radius: 6px; font-size: 1.2rem; margin: 0; }
+  .topic-heading { margin-top: 1.5rem; margin-bottom: 0.5rem; }
+  .topic-heading h3 { color: var(--header-bg); font-size: 1.05rem; border-bottom: 2px solid var(--border); padding-bottom: 0.3rem; margin: 0; }
+  .section h4 { font-size: 0.95rem; color: var(--text-muted); margin: 1.25rem 0 0.5rem; }
+  .finding-header { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+  .finding-id { font-weight: 700; font-size: 0.95rem; } .finding-title { font-weight: 500; font-size: 0.95rem; }
+  .finding-section { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); background: var(--bg); padding: 0.15rem 0.5rem; border-radius: 3px; border: 1px solid var(--border); }
+  .finding-body { font-size: 0.9rem; color: #495057; } .finding-body p { margin: 0.4rem 0; } .finding-body ul { margin: 0.4rem 0; padding-left: 1.5rem; } .finding-body li { margin-bottom: 0.25rem; }
+  .remediation-label { font-weight: 600; font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 0.75rem; margin-bottom: 0.25rem; }
+  .priority-group { margin-bottom: 1.25rem; } .priority-group h3 { margin: 0 0 0.5rem; font-size: 1rem; }
+  .priority-list { list-style: none; padding: 0; margin: 0; }
+  .priority-list li { padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border); font-size: 0.9rem; display: flex; align-items: flex-start; gap: 0.5rem; }
+  .priority-num { display: inline-flex; align-items: center; justify-content: center; min-width: 24px; height: 24px; border-radius: 50%; font-size: 0.75rem; font-weight: 700; color: #fff; flex-shrink: 0; }
+  .priority-num.critical-num { background: var(--critical); } .priority-num.high-num { background: var(--high); } .priority-num.medium-num { background: var(--medium); color: #000; } .priority-num.low-num { background: var(--low); }
+  .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.82rem; border-top: 1px solid var(--border); margin-top: 1rem; }
+  .exec-highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+  .exec-box { border-radius: 6px; padding: 1rem; font-size: 0.9rem; } .exec-box h4 { margin: 0 0 0.5rem; font-size: 0.95rem; } .exec-box ul { margin: 0.25rem 0 0; padding-left: 1.25rem; } .exec-box li { margin-bottom: 0.2rem; }
+  .exec-strengths { background: #d1e7dd; border: 1px solid #a3cfbb; } .exec-strengths h4 { color: #0f5132; }
+  .exec-critical { background: #f8d7da; border: 1px solid #f1aeb5; } .exec-critical h4 { color: #58151c; }
+  .score-bar-container { margin: 1rem 0; }
+  .score-bar { height: 28px; border-radius: 6px; overflow: hidden; display: flex; background: #e9ecef; }
+  .score-bar > div { display: flex; align-items: center; justify-content: center; color: #fff; font-size: 0.75rem; font-weight: 600; min-width: 30px; }
+  .seg-pass { background: var(--pass); } .seg-partial { background: var(--partial); } .seg-fail { background: var(--fail); } .seg-na { background: var(--na); } .seg-pending { background: #6f42c1; }
+  .score-legend { display: flex; gap: 1.25rem; margin-top: 0.5rem; font-size: 0.82rem; }
+  .score-legend span::before { content: ''; display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 4px; vertical-align: middle; }
+  .score-legend .leg-pass::before { background: var(--pass); } .score-legend .leg-partial::before { background: var(--partial); } .score-legend .leg-fail::before { background: var(--fail); } .score-legend .leg-na::before { background: var(--na); } .score-legend .leg-pending::before { background: #6f42c1; }
+  @media print { body { background: #fff; font-size: 12px; } .header { background: #1a1a2e !important; -webkit-print-color-adjust: exact; } .container { max-width: 100%; padding: 0.5rem; } .section, .finding-card { break-inside: avoid; } .badge, .priority-num, .score-bar > div, .exec-strengths, .exec-critical { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+  @media (max-width: 768px) { .header { padding: 1.5rem 1rem; } .header h1 { font-size: 1.3rem; } .container { padding: 1rem; } .exec-highlights { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>AIO2 Multi-Framework Review — [SOLUTION_NAME]</h1>
+  <div class="subtitle">Workspace: [SOLUTION_IDENTIFIER] &nbsp;|&nbsp; Region: [REGION]</div>
+  <div class="badge-row">
+    <span class="badge-full">[Code Review / Cloud Review / Full Review]</span>
+    <span class="badge-framework">[WA / NIST / FinOps / All]</span>
+    <span class="badge-date">[DATE]</span>
+  </div>
+</div>
+
+<div class="container">
+<!-- BODY_CONTENT_START -->
+
+<!-- Metadata -->
+<div class="section">
+  <h2>Review Metadata</h2>
+  <table class="meta-table">
+    <tr><th>Solution</th><td><code>[SOLUTION_IDENTIFIER]</code></td></tr>
+    <tr><th>Region</th><td><code>[REGION]</code></td></tr>
+    <tr><th>Account</th><td><code>[ACCOUNT_ID]</code></td></tr>
+    <tr><th>Input Type</th><td>[Agent ARN / CloudFormation Stack / AppRegistry Application / Resource Group / Code Workspace]</td></tr>
+    <tr><th>Resources</th><td>[RESOURCE_SUMMARY]</td></tr>
+    <tr><th>Model(s)</th><td><code>[MODEL_IDS]</code></td></tr>
+    <tr><th>Review Scope</th><td>[Code Review / Cloud Review / Full Review]</td></tr>
+    <tr><th>Frameworks</th><td>[WA / NIST / FinOps / All]</td></tr>
+    <tr><th>Review Date</th><td>[DATE]</td></tr>
+  </table>
+</div>
+
+<!-- Executive Summary -->
+<div class="section">
+  <h2>Executive Summary</h2>
+  <p>[Paragraph 1: Overall solution details — what it does, how it's deployed, key components. 5-8 sentences.]</p>
+  <p>[Paragraph 2: Key strengths — what the solution does well across security, reliability, cost, etc. 5-8 sentences.]</p>
+  <p>[Paragraph 3: Top 5-8 Critical/High findings — most impactful gaps requiring immediate attention. 5-8 sentences.]</p>
+
+  <!-- Score bar -->
+  <div class="score-bar-container">
+    <div class="score-bar">
+      <div class="seg-pass" style="width:[PASS_PCT]%">[PASS_COUNT]</div>
+      <div class="seg-partial" style="width:[PARTIAL_PCT]%">[PARTIAL_COUNT]</div>
+      <div class="seg-fail" style="width:[FAIL_PCT]%">[FAIL_COUNT]</div>
+      <div class="seg-na" style="width:[NA_PCT]%">[NA_COUNT]</div>
+      <div class="seg-pending" style="width:[PENDING_PCT]%">[PENDING_COUNT]</div>
+    </div>
+    <div class="score-legend">
+      <span class="leg-pass">Pass ([PASS_COUNT])</span>
+      <span class="leg-partial">Partial ([PARTIAL_COUNT])</span>
+      <span class="leg-fail">Fail ([FAIL_COUNT])</span>
+      <span class="leg-na">N/A ([NA_COUNT])</span>
+      <span class="leg-pending">Pending ([PENDING_COUNT])</span>
+    </div>
+  </div>
+</div>
+
+<!-- Assessment Summary -->
+<div class="section">
+  <h2>Assessment Summary</h2>
+  <table class="summary-table">
+    <tr><th>Lens</th><th>Pillar</th><th>Assessed</th><th>PASS</th><th>FAIL</th><th>PARTIAL</th><th>N/A</th><th>PENDING</th></tr>
+    <!-- Repeat rows grouped by Lens → Pillar (pillar_name) with hyperlinks to detailed sections -->
+    <tr><td>[Lens Name]</td><td><a href="#[anchor]">[Pillar Name]</a></td><td>[N]</td><td class="pass-cell">[N]</td><td class="fail-cell">[N]</td><td class="partial-cell">[N]</td><td class="na-cell">[N]</td><td class="pending-cell">[N]</td></tr>
+    <!-- Total row -->
+    <tr><td><strong>Total</strong></td><td></td><td><strong>[N]</strong></td><td class="pass-cell"><strong>[N]</strong></td><td class="fail-cell"><strong>[N]</strong></td><td class="partial-cell"><strong>[N]</strong></td><td class="na-cell"><strong>[N]</strong></td><td class="pending-cell"><strong>[N]</strong></td></tr>
+  </table>
+</div>
+
+<!-- Detailed Findings — grouped by Pillar → Sub-category -->
+<!-- Within each sub-category, findings are ordered: CRITICAL severity first,
+     then within each severity tier: FAIL → PARTIAL → PENDING → PASS → N/A -->
+<div class="section" id="[anchor]">
+  <h2>[Pillar Name] — [Question ID]: [Question Title]</h2>
+
+  <!-- Example CRITICAL FAIL finding -->
+  <div class="finding-card severity-critical">
+    <div class="finding-header">
+      <span class="finding-id">[CHECK_ID]</span>
+      <span class="finding-title">— [Check Title] [auto/code]</span>
+      <span class="badge badge-fail">FAIL</span>
+      <span class="badge badge-critical">CRITICAL</span>
+    </div>
+    <div class="finding-body">
+      <p><strong>Finding:</strong> [Detailed description]</p>
+      <div class="remediation-label">Remediation</div>
+      <p>[Remediation guidance]</p>
+      <ul>
+        <li>Documentation: <a href="[URL]" target="_blank" rel="noopener noreferrer">[Link text]</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Example HIGH PARTIAL finding -->
+  <div class="finding-card severity-high">
+    <div class="finding-header">
+      <span class="finding-id">[CHECK_ID]</span>
+      <span class="finding-title">— [Check Title] [auto/code]</span>
+      <span class="badge badge-partial">PARTIAL</span>
+      <span class="badge badge-high">HIGH</span>
+    </div>
+    <div class="finding-body">
+      <p><strong>Finding:</strong> [Detailed description]</p>
+      <div class="remediation-label">Remediation</div>
+      <ul>
+        <li>[Step 1]</li>
+        <li>Documentation: <a href="[URL]" target="_blank" rel="noopener noreferrer">[Link text]</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Example PASS finding -->
+  <div class="finding-card status-pass">
+    <div class="finding-header">
+      <span class="finding-id">[CHECK_ID]</span>
+      <span class="finding-title">— [Check Title] [auto/code]</span>
+      <span class="badge badge-pass">PASS</span>
+    </div>
+    <div class="finding-body">
+      <p><strong>Finding:</strong> [Positive finding description]</p>
+    </div>
+  </div>
+
+  <!-- Repeat for each finding in this sub-category -->
+</div>
+
+<!-- Repeat for each Pillar → Sub-category group -->
+
+<!-- Checks Requiring Human Input -->
+<div class="section">
+  <h2>Checks Requiring Human Input</h2>
+  <p>The following checks could not be auto-assessed or code-assessed and were not answered during the interactive review. They require human input to complete the assessment.</p>
+  <p><em>If no pending checks exist, this section will state: "All checks were assessed — no pending items."</em></p>
+
+  <table class="summary-table">
+    <tr><th style="text-align:left">Framework</th><th style="text-align:left">Category</th><th style="text-align:left">Check ID</th><th style="text-align:left">Question</th><th>Severity</th></tr>
+    <tr><td style="text-align:left">[WA/NIST/FinOps]</td><td style="text-align:left">[Pillar/Function/Domain]</td><td style="text-align:left"><code>[CHECK_ID]</code></td><td style="text-align:left">[Question text]</td><td><span class="badge badge-[severity]">[SEVERITY]</span></td></tr>
+    <!-- Repeat for each PENDING check -->
+  </table>
+</div>
+
+<!-- Remediation Priority -->
+<div class="section">
+  <h2>Remediation Priority</h2>
+
+  <div class="priority-group">
+    <h3>Immediate (CRITICAL)</h3>
+    <ol class="priority-list">
+      <li><span class="priority-num critical-num">1</span><span><strong>[CHECK_ID]</strong> — [Brief remediation description]</span></li>
+      <li><span class="priority-num critical-num">2</span><span><strong>[CHECK_ID]</strong> — [Brief remediation description]</span></li>
+    </ol>
+  </div>
+
+  <div class="priority-group">
+    <h3>Short-term (HIGH)</h3>
+    <ol class="priority-list">
+      <li><span class="priority-num high-num">3</span><span><strong>[CHECK_ID]</strong> — [Brief remediation description]</span></li>
+      <li><span class="priority-num high-num">4</span><span><strong>[CHECK_ID]</strong> — [Brief remediation description]</span></li>
+    </ol>
+  </div>
+
+  <div class="priority-group">
+    <h3>Medium-term (MEDIUM)</h3>
+    <ol class="priority-list">
+      <li><span class="priority-num medium-num">5</span><span><strong>[CHECK_ID]</strong> — [Brief remediation description]</span></li>
+    </ol>
+  </div>
+
+  <div class="priority-group">
+    <h3>Long-term (LOW)</h3>
+    <ol class="priority-list">
+      <li><span class="priority-num low-num">6</span><span><strong>[CHECK_ID]</strong> — [Brief remediation description]</span></li>
+    </ol>
+  </div>
+</div>
+
+</div><!-- end container -->
+<!-- BODY_CONTENT_END -->
+
+<div class="footer">
+  <p>Report generated by AWS AIO2 Multi-Framework Review &nbsp;|&nbsp; [DATE]</p>
+  <p>Checks marked [auto] were assessed by querying live AWS resources &nbsp;|&nbsp; Checks marked [code] were assessed by inspecting application code</p>
+  <p>Findings tagged [WA], [NIST], or [FinOps] indicate the source framework</p>
+  <p>
+    Frameworks:
+    <a href="https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/generative-ai-lens.html" target="_blank" rel="noopener noreferrer">AWS Well-Architected Generative AI Lens</a> |
+    <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/" target="_blank" rel="noopener noreferrer">NIST AI RMF 1.0</a> |
+    <a href="https://www.finops.org/assets/" target="_blank" rel="noopener noreferrer">FinOps Foundation — FinOps for AI</a> |
+    <a href="https://aws.amazon.com/blogs/machine-learning/ai-agents-in-enterprises-best-practices-with-amazon-bedrock-agentcore/" target="_blank" rel="noopener noreferrer">AgentCore Enterprise Best Practices</a>
+  </p>
+</div>
+
+<script>document.querySelectorAll('a[href]').forEach(function(a){if(a.getAttribute('href').charAt(0)!=='#'){a.target='_blank';a.rel='noopener noreferrer';}});</script>
+</body>
+</html>

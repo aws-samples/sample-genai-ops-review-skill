@@ -1,0 +1,260 @@
+# Resource type to check ID mapping for IaC auto-assessment
+# Used by Option B (CloudFormation/Terraform) and Option C (AppRegistry → stacks)
+# to discover GenAI resources and determine which checks apply.
+
+cloudformation:
+  # --- Bedrock Agents ---
+  AWS::Bedrock::Agent:
+    - BP01_01
+    - BP01_04
+    - GENCOST05_BP01
+    - AGENT_AGENCY_SPECTRUM
+    - GENCOST01_BP01
+    - GENPERF02_BP03
+  AWS::Bedrock::AgentAlias:
+    - BP08_02
+    - GENCOST02_BP01
+    - LC_DEPLOYMENT
+
+  # --- Bedrock Flows ---
+  AWS::Bedrock::Flow:
+    - FLOW_NODE_ERROR_HANDLING
+    - FLOW_CONDITIONAL_ROUTING
+    - FLOW_MODEL_RIGHT_SIZING
+    - FLOW_TIMEOUT
+    - FLOW_GUARDRAIL_INTEGRATION
+    - GENCOST01_BP01
+    - GENPERF02_BP03
+  AWS::Bedrock::FlowAlias:
+    - FLOW_VERSIONING
+    - LC_DEPLOYMENT
+  AWS::Bedrock::FlowVersion:
+    - FLOW_VERSIONING
+
+  # --- Bedrock Knowledge Bases ---
+  AWS::Bedrock::KnowledgeBase:
+    - GENPERF04_BP01
+    - GENPERF04_BP02
+    - GENCOST04_BP01
+    - KB_CHUNKING_STRATEGY
+    - KB_EMBEDDING_MODEL
+    - KB_VECTOR_INDEX_CONFIG
+    - KB_ACCESS_CONTROL
+    - AGENT_RETRIEVAL
+  AWS::Bedrock::DataSource:
+    - KB_DATA_SOURCE_SYNC
+    - KB_DATA_SOURCE_ENCRYPTION
+
+  # --- Bedrock Guardrails ---
+  AWS::Bedrock::Guardrail:
+    - GENSEC02_BP01
+    - RAI_SAFETY
+    - GENSEC04_BP02
+    - GENCOST03_BP04
+
+  # --- Bedrock Prompts ---
+  AWS::Bedrock::Prompt:
+    - GENOPS03_BP01
+    - GENREL04_BP01
+    - GENSEC04_BP01
+  AWS::Bedrock::PromptVersion:
+    - GENOPS03_BP01
+    - GENREL04_BP01
+
+  # --- Bedrock Custom Models ---
+  AWS::Bedrock::CustomModel:
+    - CUSTOM_MODEL_EVAL
+    - CUSTOM_MODEL_VERSIONING
+    - CUSTOM_MODEL_TRAINING_DATA_GOV
+    - GENSEC06_BP01
+    - LC_CUSTOMIZATION
+
+  # --- Bedrock Provisioned Throughput ---
+  AWS::Bedrock::ProvisionedModelThroughput:
+    - GENCOST02_BP01
+    - GENREL01_BP01
+
+  # --- SageMaker GenAI Endpoints ---
+  AWS::SageMaker::Endpoint:
+    - SM_AUTOSCALING
+    - SM_VPC_CONFIG
+    - SM_DATA_CAPTURE
+    - GENPERF02_BP01
+  AWS::SageMaker::EndpointConfig:
+    - SM_INSTANCE_RIGHT_SIZING
+    - SM_MULTI_MODEL
+    - SM_ENCRYPTION
+    - GENCOST02_BP02
+  AWS::SageMaker::Model:
+    - SM_MODEL_REGISTRY
+    - GENPERF02_BP03
+  AWS::SageMaker::ModelPackage:
+    - SM_MODEL_REGISTRY
+    - CUSTOM_MODEL_EVAL
+  AWS::SageMaker::MonitoringSchedule:
+    - SM_ENDPOINT_MONITORING
+    - GENOPS01_BP01
+
+  # --- IAM ---
+  AWS::IAM::Role:
+    - GENSEC05_BP01
+    - GENSEC01_BP01
+    - GENSEC01_BP03
+  AWS::IAM::Policy:
+    - GENSEC05_BP01
+
+  # --- Lambda (tools, flow backing functions) ---
+  AWS::Lambda::Function:
+    - BP03_04
+    - GENSEC01_BP01
+    - GENCOST05_BP01
+    - BP07_01
+
+  # --- Observability ---
+  AWS::CloudWatch::Alarm:
+    - GENOPS02_BP02
+    - GENREL01_BP01
+  AWS::CloudWatch::Dashboard:
+    - GENOPS02_BP01
+    - BP02_02
+  AWS::Logs::LogGroup:
+    - GENSEC03_BP01
+    - BP02_01
+    - INVOCATION_LOGGING
+
+  # --- Networking ---
+  AWS::EC2::VPCEndpoint:
+    - GENSEC01_BP02
+
+  # --- Identity ---
+  AWS::Cognito::UserPool:
+    - BP06_02
+
+  # --- Audit ---
+  AWS::CloudTrail::Trail:
+    - GENSEC03_BP01
+    - GENSEC01_BP04
+
+terraform:
+  # --- Bedrock Agents ---
+  aws_bedrock_agent_agent:
+    - BP01_01
+    - BP01_04
+    - GENCOST05_BP01
+    - AGENT_AGENCY_SPECTRUM
+    - GENCOST01_BP01
+    - GENPERF02_BP03
+  aws_bedrock_agent_agent_alias:
+    - BP08_02
+    - LC_DEPLOYMENT
+  aws_bedrock_agent_agent_action_group:
+    - BP03_01
+    - BP03_04
+    - AGENT_TOOL_PROTOCOL
+
+  # --- Bedrock Flows ---
+  aws_bedrock_agent_flow:
+    - FLOW_NODE_ERROR_HANDLING
+    - FLOW_CONDITIONAL_ROUTING
+    - FLOW_MODEL_RIGHT_SIZING
+    - FLOW_TIMEOUT
+    - FLOW_GUARDRAIL_INTEGRATION
+    - GENCOST01_BP01
+    - GENPERF02_BP03
+  aws_bedrock_agent_flow_alias:
+    - FLOW_VERSIONING
+    - LC_DEPLOYMENT
+
+  # --- Bedrock Knowledge Bases ---
+  aws_bedrock_agent_knowledge_base:
+    - GENPERF04_BP01
+    - GENPERF04_BP02
+    - GENCOST04_BP01
+    - KB_CHUNKING_STRATEGY
+    - KB_EMBEDDING_MODEL
+    - KB_VECTOR_INDEX_CONFIG
+    - KB_ACCESS_CONTROL
+    - AGENT_RETRIEVAL
+  aws_bedrock_agent_data_source:
+    - KB_DATA_SOURCE_SYNC
+    - KB_DATA_SOURCE_ENCRYPTION
+
+  # --- Bedrock Guardrails ---
+  aws_bedrock_guardrail:
+    - GENSEC02_BP01
+    - RAI_SAFETY
+    - GENSEC04_BP02
+    - GENCOST03_BP04
+
+  # --- Bedrock Custom Models ---
+  aws_bedrock_custom_model:
+    - CUSTOM_MODEL_EVAL
+    - CUSTOM_MODEL_VERSIONING
+    - CUSTOM_MODEL_TRAINING_DATA_GOV
+    - GENSEC06_BP01
+    - LC_CUSTOMIZATION
+
+  # --- Bedrock Provisioned Throughput ---
+  aws_bedrock_provisioned_model_throughput:
+    - GENCOST02_BP01
+    - GENREL01_BP01
+
+  # --- SageMaker GenAI Endpoints ---
+  aws_sagemaker_endpoint:
+    - SM_AUTOSCALING
+    - SM_VPC_CONFIG
+    - SM_DATA_CAPTURE
+    - GENPERF02_BP01
+  aws_sagemaker_endpoint_configuration:
+    - SM_INSTANCE_RIGHT_SIZING
+    - SM_MULTI_MODEL
+    - SM_ENCRYPTION
+    - GENCOST02_BP02
+  aws_sagemaker_model:
+    - SM_MODEL_REGISTRY
+    - GENPERF02_BP03
+  aws_sagemaker_model_package:
+    - SM_MODEL_REGISTRY
+    - CUSTOM_MODEL_EVAL
+
+  # --- IAM ---
+  aws_iam_role:
+    - GENSEC05_BP01
+    - GENSEC01_BP01
+    - GENSEC01_BP03
+  aws_iam_role_policy:
+    - GENSEC05_BP01
+  aws_iam_policy:
+    - GENSEC05_BP01
+
+  # --- Lambda ---
+  aws_lambda_function:
+    - BP03_04
+    - GENSEC01_BP01
+    - GENCOST05_BP01
+    - BP07_01
+
+  # --- Observability ---
+  aws_cloudwatch_metric_alarm:
+    - GENOPS02_BP02
+    - GENREL01_BP01
+  aws_cloudwatch_dashboard:
+    - GENOPS02_BP01
+    - BP02_02
+  aws_cloudwatch_log_group:
+    - GENSEC03_BP01
+    - BP02_01
+    - INVOCATION_LOGGING
+
+  # --- Networking ---
+  aws_vpc_endpoint:
+    - GENSEC01_BP02
+
+  # --- Identity ---
+  aws_cognito_user_pool:
+    - BP06_02
+
+  # --- Audit ---
+  aws_cloudtrail:
+    - GENSEC03_BP01
+    - GENSEC01_BP04

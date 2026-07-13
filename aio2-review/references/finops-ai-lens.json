@@ -1,0 +1,431 @@
+{
+  "schemaVersion": "2026-06-04",
+  "name": "FinOps for AI Lens",
+  "description": "Canonical question, description, severity, remediation, maturity tier, and documentation URL per FinOps for AI check. Source: FinOps Foundation FinOps for AI working group asset library.",
+  "pillars": [
+    {
+      "id": "manage_the_finops_practice",
+      "name": "Manage the FinOps Practice",
+      "questions": [
+        {
+          "id": "FIN-MGT-01",
+          "title": "Is there clear ownership and accountability for AI spending, with designated cost owners per team, project, or department?",
+          "description": "Clear ownership and accountability for AI spending is established — by team, project, or department.",
+          "choices": [
+            {
+              "id": "FIN-MGT-01",
+              "title": "Is there clear ownership and accountability for AI spending, with designated cost owners per team, project, or department?",
+              "helpfulResource": {
+                "displayText": "Clear ownership and accountability for AI spending is established — by team, project, or department.",
+                "url": "https://www.finops.org/wg/managing-ai-value-finops-practice-operations/"
+              },
+              "improvementPlan": {
+                "displayText": "Assign AI cost owners per team or project. Implement chargeback or showback models for AI spend. Include AI costs in team budget reviews.",
+                "url": "https://www.finops.org/wg/managing-ai-value-finops-practice-operations/"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "FIN-MGT-02",
+          "title": "Are budget controls, spending quotas, and anomaly detection in place for AI workloads to prevent unexpected cost overruns?",
+          "description": "Budget controls, quotas, and anomaly detection are in place for AI spending to prevent unexpected cost overruns.",
+          "choices": [
+            {
+              "id": "FIN-MGT-02",
+              "title": "Are budget controls, spending quotas, and anomaly detection in place for AI workloads to prevent unexpected cost overruns?",
+              "helpfulResource": {
+                "displayText": "Budget controls, quotas, and anomaly detection are in place for AI spending to prevent unexpected cost overruns.",
+                "url": "https://www.finops.org/wg/finops-for-ai-overview/"
+              },
+              "improvementPlan": {
+                "displayText": "Set AWS Budgets with alerts for AI services. Implement per-team or per-project quotas. Enable Cost Anomaly Detection for AI service categories.",
+                "url": "https://www.finops.org/wg/finops-for-ai-overview/"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "FIN-MGT-03",
+          "title": "Does AI cost forecasting account for optimization impacts, non-linear scaling, and the volatility of AI workload costs?",
+          "description": "AI cost forecasting accounts for the impact of optimization initiatives and the non-linear scaling characteristics of AI workloads.",
+          "choices": [
+            {
+              "id": "FIN-MGT-03",
+              "title": "Does AI cost forecasting account for optimization impacts, non-linear scaling, and the volatility of AI workload costs?",
+              "helpfulResource": {
+                "displayText": "AI cost forecasting accounts for the impact of optimization initiatives and the non-linear scaling characteristics of AI workloads.",
+                "url": "https://www.finops.org/wg/effect-of-optimization-on-ai-forecasting/"
+              },
+              "improvementPlan": {
+                "displayText": "Build AI-specific forecasting models that account for token volume growth, model changes, optimization savings, and seasonal usage patterns.",
+                "url": "https://www.finops.org/wg/effect-of-optimization-on-ai-forecasting/"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "FIN-MGT-04",
+          "title": "Do AI projects use incremental funding with frequent review gates (fail-fast approach) rather than large upfront budget commitments?",
+          "description": "AI projects use incremental funding models with frequent fail-fast reviews rather than large upfront commitments.",
+          "choices": [
+            {
+              "id": "FIN-MGT-04",
+              "title": "Do AI projects use incremental funding with frequent review gates (fail-fast approach) rather than large upfront budget commitments?",
+              "helpfulResource": {
+                "displayText": "AI projects use incremental funding models with frequent fail-fast reviews rather than large upfront commitments.",
+                "url": "https://www.finops.org/wg/managing-ai-value-finops-practice-operations/"
+              },
+              "improvementPlan": {
+                "displayText": "Implement stage-gated funding for AI projects: small initial budgets for experimentation, with incremental increases tied to demonstrated value.",
+                "url": "https://www.finops.org/wg/managing-ai-value-finops-practice-operations/"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "FIN-MGT-05",
+          "title": "Have teams building and operating this AI solution received training on FinOps best practices specific to AI workloads (token economics, GPU optimization, cost attribution)?",
+          "description": "Teams building and operating AI solutions are trained on FinOps best practices specific to AI workloads.",
+          "choices": [
+            {
+              "id": "FIN-MGT-05",
+              "title": "Have teams building and operating this AI solution received training on FinOps best practices specific to AI workloads (token economics, GPU optimization, cost attribution)?",
+              "helpfulResource": {
+                "displayText": "Teams building and operating AI solutions are trained on FinOps best practices specific to AI workloads.",
+                "url": "https://www.finops.org/wg/finops-for-ai-overview/"
+              },
+              "improvementPlan": {
+                "displayText": "Provide AI-specific FinOps training covering token economics, GPU cost management, model selection trade-offs, and cost attribution practices.",
+                "url": "https://www.finops.org/wg/finops-for-ai-overview/"
+              }
+            }
+          ],
+          "riskRules": []
+        }
+      ]
+    },
+    {
+      "id": "optimize_usage_&_cost",
+      "name": "Optimize Usage & Cost",
+      "questions": [
+        {
+          "id": "FIN-OPT-01",
+          "title": "",
+          "description": "The AI model selected is appropriate for the task complexity. Smaller models are used for simple tasks, larger models reserved for complex reasoning.",
+          "choices": [
+            {
+              "id": "FIN-OPT-01",
+              "title": "",
+              "helpfulResource": {
+                "displayText": "The AI model selected is appropriate for the task complexity. Smaller models are used for simple tasks, larger models reserved for complex reasoning.",
+                "url": "https://www.finops.org/wg/optimizing-genai-usage/"
+              },
+              "improvementPlan": {
+                "displayText": "Benchmark smaller models (e.g., Haiku, Titan Lite) on representative queries. Use Bedrock Prompt Router to auto-route by complexity. Reserve large models for complex tasks.",
+                "url": "https://www.finops.org/wg/optimizing-genai-usage/"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "FIN-OPT-02",
+          "title": "Are prompts optimized for token efficiency, including concise system prompts, controlled context windows, and max token limits on responses?",
+          "description": "Prompts are optimized for token efficiency — concise system prompts, minimal context window growth, and controlled response lengths.",
+          "choices": [
+            {
+              "id": "FIN-OPT-02",
+              "title": "Are prompts optimized for token efficiency, including concise system prompts, controlled context windows, and max token limits on responses?",
+              "helpfulResource": {
+                "displayText": "Prompts are optimized for token efficiency — concise system prompts, minimal context window growth, and controlled response lengths.",
+                "url": "https://www.finops.org/wg/genai-finops-how-token-pricing-really-works/"
+              },
+              "improvementPlan": {
+                "displayText": "Audit system prompts for verbosity. Set max token limits on responses. Implement context window management to prevent creep over conversation turns.",
+                "url": "https://www.finops.org/wg/genai-finops-how-token-pricing-really-works/"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "FIN-OPT-03",
+          "title": "",
+          "description": "Prompt caching is enabled for repeated or similar prompts to reduce redundant token processing costs.",
+          "choices": [
+            {
+              "id": "FIN-OPT-03",
+              "title": "",
+              "helpfulResource": {
+                "displayText": "Prompt caching is enabled for repeated or similar prompts to reduce redundant token processing costs.",
+                "url": "https://www.finops.org/wg/optimizing-genai-usage/"
+              },
+              "improvementPlan": {
+                "displayText": "Enable Bedrock prompt caching for system prompts and frequently repeated context. Monitor cache hit rates and cost savings.",
+                "url": "https://www.finops.org/wg/optimizing-genai-usage/"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "FIN-OPT-04",
+          "title": "Are GPU and compute resources right-sized for AI workloads, with utilization monitored and idle resources addressed?",
+          "description": "GPU and compute resources are right-sized, with utilization monitored and idle resources identified and addressed.",
+          "choices": [
+            {
+              "id": "FIN-OPT-04",
+              "title": "Are GPU and compute resources right-sized for AI workloads, with utilization monitored and idle resources addressed?",
+              "helpfulResource": {
+                "displayText": "GPU and compute resources are right-sized, with utilization monitored and idle resources identified and addressed.",
+                "url": "https://www.finops.org/wg/optimizing-genai-usage/"
+              },
+              "improvementPlan": {
+                "displayText": "Monitor GPU utilization (target >60%). Implement auto-scaling, spot instances for training, and scheduled scaling for predictable inference patterns.",
+                "url": "https://www.finops.org/wg/optimizing-genai-usage/"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "FIN-OPT-05",
+          "title": "Is there a capacity commitment strategy in place, using provisioned throughput or reserved capacity where usage patterns justify it?",
+          "description": "A capacity commitment strategy is in place, transitioning from pay-as-you-go to provisioned capacity where usage patterns justify it.",
+          "choices": [
+            {
+              "id": "FIN-OPT-05",
+              "title": "Is there a capacity commitment strategy in place, using provisioned throughput or reserved capacity where usage patterns justify it?",
+              "helpfulResource": {
+                "displayText": "A capacity commitment strategy is in place, transitioning from pay-as-you-go to provisioned capacity where usage patterns justify it.",
+                "url": "https://www.finops.org/wg/genai-capacity-options/"
+              },
+              "improvementPlan": {
+                "displayText": "Analyze usage patterns to identify candidates for provisioned throughput. Treat capacity commitments as strategic decisions, not just discount mechanisms.",
+                "url": "https://www.finops.org/wg/genai-capacity-options/"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "FIN-OPT-06",
+          "title": "Is the AI infrastructure model (fully managed like Bedrock, partially managed like SageMaker, or self-managed) aligned with the organization's FinOps maturity?",
+          "description": "The AI infrastructure model (fully managed, partially managed, or self-managed) is aligned with the organization's FinOps maturity and technical readiness.",
+          "choices": [
+            {
+              "id": "FIN-OPT-06",
+              "title": "Is the AI infrastructure model (fully managed like Bedrock, partially managed like SageMaker, or self-managed) aligned with the organization's FinOps maturity?",
+              "helpfulResource": {
+                "displayText": "The AI infrastructure model (fully managed, partially managed, or self-managed) is aligned with the organization's FinOps maturity and technical readiness.",
+                "url": "https://www.finops.org/wg/choosing-an-ai-approach-and-infrastructure-strategy/"
+              },
+              "improvementPlan": {
+                "displayText": "Evaluate infrastructure choices against the Crawl/Walk/Run maturity model. Start with fully managed for experimentation, move to partially managed for scaling.",
+                "url": "https://www.finops.org/wg/choosing-an-ai-approach-and-infrastructure-strategy/"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "FIN-OPT-07",
+          "title": "",
+          "description": "Content pre-filtering or guardrails are used to block unnecessary or harmful requests before they consume model inference tokens.",
+          "choices": [
+            {
+              "id": "FIN-OPT-07",
+              "title": "",
+              "helpfulResource": {
+                "displayText": "Content pre-filtering or guardrails are used to block unnecessary or harmful requests before they consume model inference tokens.",
+                "url": "https://www.finops.org/wg/optimizing-genai-usage/"
+              },
+              "improvementPlan": {
+                "displayText": "Configure Bedrock Guardrails with content filters on input to block harmful or off-topic requests before they reach the model, saving inference costs.",
+                "url": "https://www.finops.org/wg/optimizing-genai-usage/"
+              }
+            }
+          ],
+          "riskRules": []
+        }
+      ]
+    },
+    {
+      "id": "quantify_business_value",
+      "name": "Quantify Business Value",
+      "questions": [
+        {
+          "id": "FIN-QBV-01",
+          "title": "Are AI unit economics defined and tracked (e.g., cost per query, cost per transaction, cost per user, or cost per business outcome)?",
+          "description": "AI unit economics are defined and tracked (cost per query, cost per transaction, cost per user, or cost per business outcome).",
+          "choices": [
+            {
+              "id": "FIN-QBV-01",
+              "title": "Are AI unit economics defined and tracked (e.g., cost per query, cost per transaction, cost per user, or cost per business outcome)?",
+              "helpfulResource": {
+                "displayText": "AI unit economics are defined and tracked (cost per query, cost per transaction, cost per user, or cost per business outcome).",
+                "url": "https://www.finops.org/wg/unlocking-ai-business-value-with-finops/"
+              },
+              "improvementPlan": {
+                "displayText": "Define AI unit metrics aligned to business outcomes. Track cost-per-query, cost-per-conversation, or cost-per-resolution alongside business KPIs.",
+                "url": "https://www.finops.org/wg/unlocking-ai-business-value-with-finops/"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "FIN-QBV-02",
+          "title": "Is the ROI of this AI solution measured against business value delivered, with metrics appropriate to its lifecycle stage?",
+          "description": "AI investments are measured against business value delivered, with clear ROI metrics at each lifecycle stage (concept, prototype, MVP, product).",
+          "choices": [
+            {
+              "id": "FIN-QBV-02",
+              "title": "Is the ROI of this AI solution measured against business value delivered, with metrics appropriate to its lifecycle stage?",
+              "helpfulResource": {
+                "displayText": "AI investments are measured against business value delivered, with clear ROI metrics at each lifecycle stage (concept, prototype, MVP, product).",
+                "url": "https://www.finops.org/wg/unlocking-ai-business-value-with-finops/"
+              },
+              "improvementPlan": {
+                "displayText": "Implement phased ROI measurement: market sizing at concept stage, value measurement at prototype, ROI evaluation at MVP, and TCO analysis at product stage.",
+                "url": "https://www.finops.org/wg/unlocking-ai-business-value-with-finops/"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "FIN-QBV-03",
+          "title": "Is there a cross-functional AI Investment Council or governance body that aligns AI investments with strategic goals and reviews AI project value?",
+          "description": "A cross-functional AI Investment Council or equivalent governance body aligns AI investments with strategic goals and ethical standards.",
+          "choices": [
+            {
+              "id": "FIN-QBV-03",
+              "title": "Is there a cross-functional AI Investment Council or governance body that aligns AI investments with strategic goals and reviews AI project value?",
+              "helpfulResource": {
+                "displayText": "A cross-functional AI Investment Council or equivalent governance body aligns AI investments with strategic goals and ethical standards.",
+                "url": "https://www.finops.org/wg/managing-ai-value-finops-practice-operations/"
+              },
+              "improvementPlan": {
+                "displayText": "Establish an AI Investment Council with representatives from engineering, finance, product, and compliance to review AI project portfolios and investment decisions.",
+                "url": "https://www.finops.org/wg/managing-ai-value-finops-practice-operations/"
+              }
+            }
+          ],
+          "riskRules": []
+        }
+      ]
+    },
+    {
+      "id": "understand_usage_&_cost",
+      "name": "Understand Usage & Cost",
+      "questions": [
+        {
+          "id": "FIN-UND-01",
+          "title": "Are AI workload costs tracked with granular attribution (per team, project, model, or use case) using structured tagging?",
+          "description": "AI workloads are identified, tagged, and tracked with granular cost attribution (per team, project, model, or use case).",
+          "choices": [
+            {
+              "id": "FIN-UND-01",
+              "title": "Are AI workload costs tracked with granular attribution (per team, project, model, or use case) using structured tagging?",
+              "helpfulResource": {
+                "displayText": "AI workloads are identified, tagged, and tracked with granular cost attribution (per team, project, model, or use case).",
+                "url": "https://www.finops.org/wg/finops-for-ai-overview/"
+              },
+              "improvementPlan": {
+                "displayText": "Implement structured tagging for all AI resources (e.g., AI_Project, AI_Team, AI_Model). Use AWS Cost Explorer or Cost and Usage Reports filtered by AI services.",
+                "url": "https://www.finops.org/wg/finops-for-ai-overview/"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "FIN-UND-02",
+          "title": "Is token consumption (input and output tokens) tracked per model, per application, and per team?",
+          "description": "Token consumption (input and output) is tracked per model, per application, and per user or team.",
+          "choices": [
+            {
+              "id": "FIN-UND-02",
+              "title": "Is token consumption (input and output tokens) tracked per model, per application, and per team?",
+              "helpfulResource": {
+                "displayText": "Token consumption (input and output) is tracked per model, per application, and per user or team.",
+                "url": "https://www.finops.org/wg/genai-finops-how-token-pricing-really-works/"
+              },
+              "improvementPlan": {
+                "displayText": "Enable Bedrock model invocation logging to capture token usage. Build dashboards tracking input/output token ratios and costs per application.",
+                "url": "https://www.finops.org/wg/genai-finops-how-token-pricing-really-works/"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "FIN-UND-03",
+          "title": "Does the team understand token pricing nuances such as context window creep, input/output price asymmetry, and how media-rich interactions multiply costs?",
+          "description": "The team understands token pricing nuances including context window creep, input/output price asymmetry, and media-rich interaction cost multipliers.",
+          "choices": [
+            {
+              "id": "FIN-UND-03",
+              "title": "Does the team understand token pricing nuances such as context window creep, input/output price asymmetry, and how media-rich interactions multiply costs?",
+              "helpfulResource": {
+                "displayText": "The team understands token pricing nuances including context window creep, input/output price asymmetry, and media-rich interaction cost multipliers.",
+                "url": "https://www.finops.org/wg/genai-finops-how-token-pricing-really-works/"
+              },
+              "improvementPlan": {
+                "displayText": "Educate teams on token pricing mechanics. Monitor context window growth over conversation turns. Set max token limits on responses.",
+                "url": "https://www.finops.org/wg/genai-finops-how-token-pricing-really-works/"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "FIN-UND-04",
+          "title": "Is there a dedicated AI cost and usage tracking mechanism providing real-time or near-real-time visibility into AI spend?",
+          "description": "A dedicated AI cost and usage tracking mechanism is in place, providing real-time or near-real-time visibility into AI spend.",
+          "choices": [
+            {
+              "id": "FIN-UND-04",
+              "title": "Is there a dedicated AI cost and usage tracking mechanism providing real-time or near-real-time visibility into AI spend?",
+              "helpfulResource": {
+                "displayText": "A dedicated AI cost and usage tracking mechanism is in place, providing real-time or near-real-time visibility into AI spend.",
+                "url": "https://www.finops.org/wg/how-to-build-a-generative-ai-cost-and-usage-tracker/"
+              },
+              "improvementPlan": {
+                "displayText": "Build an AI cost tracker using Cost Explorer APIs, CloudWatch metrics, and invocation logs. Create dashboards with daily/weekly cost trends.",
+                "url": "https://www.finops.org/wg/how-to-build-a-generative-ai-cost-and-usage-tracker/"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "FIN-UND-05",
+          "title": "Are AI workloads clearly identified and distinguished from non-AI workloads in cost reporting?",
+          "description": "AI workloads are identified and distinguished from non-AI workloads using a combination of known services, manual tagging, and discovery rules.",
+          "choices": [
+            {
+              "id": "FIN-UND-05",
+              "title": "Are AI workloads clearly identified and distinguished from non-AI workloads in cost reporting?",
+              "helpfulResource": {
+                "displayText": "AI workloads are identified and distinguished from non-AI workloads using a combination of known services, manual tagging, and discovery rules.",
+                "url": "https://www.finops.org/wg/choosing-an-ai-approach-and-infrastructure-strategy/"
+              },
+              "improvementPlan": {
+                "displayText": "Use a combination of service-based identification (Bedrock, SageMaker), resource tagging, and discovery rules to classify AI workloads.",
+                "url": "https://www.finops.org/wg/choosing-an-ai-approach-and-infrastructure-strategy/"
+              }
+            }
+          ],
+          "riskRules": []
+        }
+      ]
+    }
+  ]
+}

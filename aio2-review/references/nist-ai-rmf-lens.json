@@ -1,0 +1,771 @@
+{
+  "schemaVersion": "2026-06-04",
+  "name": "NIST AI Risk Management Framework Lens",
+  "description": "Canonical question, description, severity, remediation, and documentation URL per NIST AI RMF check. Source: NIST AI RMF Core + GenAI Profile (AI 600-1).",
+  "pillars": [
+    {
+      "id": "govern",
+      "name": "Govern",
+      "questions": [
+        {
+          "id": "GOVERN-1.1",
+          "title": "Are legal and regulatory requirements involving AI understood, managed, and documented for this solution?",
+          "description": "Legal and regulatory requirements involving AI are understood, managed, and documented.",
+          "choices": [
+            {
+              "id": "GOVERN-1.1",
+              "title": "Are legal and regulatory requirements involving AI understood, managed, and documented for this solution?",
+              "helpfulResource": {
+                "displayText": "Legal and regulatory requirements involving AI are understood, managed, and documented.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-1-1"
+              },
+              "improvementPlan": {
+                "displayText": "Establish a compliance register mapping applicable AI regulations to the solution. Document how each requirement is addressed.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-1-1"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "GOVERN-1.2",
+          "title": "Are trustworthy AI characteristics (fairness, transparency, accountability, safety, privacy, security) integrated into organizational policies governing this solution?",
+          "description": "The characteristics of trustworthy AI are integrated into organizational policies, processes, procedures, and practices.",
+          "choices": [
+            {
+              "id": "GOVERN-1.2",
+              "title": "Are trustworthy AI characteristics (fairness, transparency, accountability, safety, privacy, security) integrated into organizational policies governing this solution?",
+              "helpfulResource": {
+                "displayText": "The characteristics of trustworthy AI are integrated into organizational policies, processes, procedures, and practices.",
+                "url": "https://airc.nist.gov/airmf-resources/airmf/3-sec-characteristics"
+              },
+              "improvementPlan": {
+                "displayText": "Develop or update organizational AI policies to explicitly address each trustworthy AI characteristic defined in the NIST AI RMF.",
+                "url": "https://airc.nist.gov/airmf-resources/airmf/3-sec-characteristics"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "GOVERN-1.3",
+          "title": "Has the organization defined its AI risk tolerance and determined the level of risk management activities needed for this solution?",
+          "description": "Processes are in place to determine the needed level of risk management activities based on the organization's risk tolerance.",
+          "choices": [
+            {
+              "id": "GOVERN-1.3",
+              "title": "Has the organization defined its AI risk tolerance and determined the level of risk management activities needed for this solution?",
+              "helpfulResource": {
+                "displayText": "Processes are in place to determine the needed level of risk management activities based on the organization's risk tolerance.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-1-3"
+              },
+              "improvementPlan": {
+                "displayText": "Define organizational AI risk tolerance levels and map them to specific risk management activities for different AI system categories.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-1-3"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "GOVERN-1.4",
+          "title": "Is the AI risk management process for this solution established through transparent, documented policies and controls aligned to organizational risk priorities?",
+          "description": "The risk management process and its outcomes are established through transparent policies, procedures, and other controls based on organizational risk priorities.",
+          "choices": [
+            {
+              "id": "GOVERN-1.4",
+              "title": "Is the AI risk management process for this solution established through transparent, documented policies and controls aligned to organizational risk priorities?",
+              "helpfulResource": {
+                "displayText": "The risk management process and its outcomes are established through transparent policies, procedures, and other controls based on organizational risk priorities.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-1-4"
+              },
+              "improvementPlan": {
+                "displayText": "Document the AI risk management process (roles, decision points, escalation, outcomes) in transparent policies tied to organizational risk priorities, and make them accessible to relevant AI actors.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-1-4"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "GOVERN-1.5",
+          "title": "Is there a planned schedule for periodic review of AI risk management processes, with clear roles and responsibilities assigned?",
+          "description": "Ongoing monitoring and periodic review of the risk management process and its outcomes are planned, with organizational roles and responsibilities clearly defined.",
+          "choices": [
+            {
+              "id": "GOVERN-1.5",
+              "title": "Is there a planned schedule for periodic review of AI risk management processes, with clear roles and responsibilities assigned?",
+              "helpfulResource": {
+                "displayText": "Ongoing monitoring and periodic review of the risk management process and its outcomes are planned, with organizational roles and responsibilities clearly defined.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-1-5"
+              },
+              "improvementPlan": {
+                "displayText": "Establish a review cadence (quarterly or semi-annual) for AI risk management processes with assigned owners and documented outcomes.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-1-5"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "GOVERN-1.6",
+          "title": "Does the organization maintain an inventory of all AI systems, including this solution, with risk classifications?",
+          "description": "Mechanisms are in place to inventory AI systems and are resourced according to organizational risk priorities.",
+          "choices": [
+            {
+              "id": "GOVERN-1.6",
+              "title": "Does the organization maintain an inventory of all AI systems, including this solution, with risk classifications?",
+              "helpfulResource": {
+                "displayText": "Mechanisms are in place to inventory AI systems and are resourced according to organizational risk priorities.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-1-6"
+              },
+              "improvementPlan": {
+                "displayText": "Create and maintain a centralized AI system inventory that includes system purpose, risk level, data types, deployment status, and responsible teams.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-1-6"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "GOVERN-1.7",
+          "title": "Are there documented processes for safely decommissioning this AI solution if needed, including data handling and user notification?",
+          "description": "Processes and procedures are in place for decommissioning and phasing out AI systems safely.",
+          "choices": [
+            {
+              "id": "GOVERN-1.7",
+              "title": "Are there documented processes for safely decommissioning this AI solution if needed, including data handling and user notification?",
+              "helpfulResource": {
+                "displayText": "Processes and procedures are in place for decommissioning and phasing out AI systems safely.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-1-7"
+              },
+              "improvementPlan": {
+                "displayText": "Document a decommissioning plan covering data retention/deletion, user notification, dependency management, and rollback procedures.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-1-7"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "GOVERN-2.1",
+          "title": "Are roles and responsibilities for AI risk management clearly documented and communicated for this solution's team?",
+          "description": "Roles and responsibilities and lines of communication related to mapping, measuring, and managing AI risks are documented and clear.",
+          "choices": [
+            {
+              "id": "GOVERN-2.1",
+              "title": "Are roles and responsibilities for AI risk management clearly documented and communicated for this solution's team?",
+              "helpfulResource": {
+                "displayText": "Roles and responsibilities and lines of communication related to mapping, measuring, and managing AI risks are documented and clear.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-2-1"
+              },
+              "improvementPlan": {
+                "displayText": "Create a RACI matrix for AI risk management activities covering development, deployment, monitoring, and incident response.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-2-1"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "GOVERN-2.2",
+          "title": "Have team members working on this solution received AI risk management training appropriate to their roles?",
+          "description": "The organization's personnel and partners receive AI risk management training.",
+          "choices": [
+            {
+              "id": "GOVERN-2.2",
+              "title": "Have team members working on this solution received AI risk management training appropriate to their roles?",
+              "helpfulResource": {
+                "displayText": "The organization's personnel and partners receive AI risk management training.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-2-2"
+              },
+              "improvementPlan": {
+                "displayText": "Implement AI risk management training programs tailored to different roles (developers, operators, business stakeholders).",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-2-2"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "GOVERN-2.3",
+          "title": "Has executive leadership formally accepted responsibility for AI risk decisions related to this solution?",
+          "description": "Executive leadership takes responsibility for decisions about risks associated with AI system development and deployment.",
+          "choices": [
+            {
+              "id": "GOVERN-2.3",
+              "title": "Has executive leadership formally accepted responsibility for AI risk decisions related to this solution?",
+              "helpfulResource": {
+                "displayText": "Executive leadership takes responsibility for decisions about risks associated with AI system development and deployment.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-2-3"
+              },
+              "improvementPlan": {
+                "displayText": "Establish executive sign-off processes for AI system deployment decisions, with documented risk acceptance.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-2-3"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "GOVERN-4.3",
+          "title": "Are there established practices for AI testing, incident identification, and information sharing for this solution?",
+          "description": "Organizational practices are in place to enable AI testing, identification of incidents, and information sharing.",
+          "choices": [
+            {
+              "id": "GOVERN-4.3",
+              "title": "Are there established practices for AI testing, incident identification, and information sharing for this solution?",
+              "helpfulResource": {
+                "displayText": "Organizational practices are in place to enable AI testing, identification of incidents, and information sharing.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-4-3"
+              },
+              "improvementPlan": {
+                "displayText": "Implement AI-specific testing practices, incident tracking, and cross-team information sharing mechanisms.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-4-3"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "GOVERN-6.1",
+          "title": "Are there policies addressing risks from third-party AI components (foundation models, APIs, data) used in this solution, including IP considerations?",
+          "description": "Policies and procedures are in place that address AI risks associated with third-party entities, including IP rights.",
+          "choices": [
+            {
+              "id": "GOVERN-6.1",
+              "title": "Are there policies addressing risks from third-party AI components (foundation models, APIs, data) used in this solution, including IP considerations?",
+              "helpfulResource": {
+                "displayText": "Policies and procedures are in place that address AI risks associated with third-party entities, including IP rights.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-6-1"
+              },
+              "improvementPlan": {
+                "displayText": "Document all third-party AI dependencies, assess their risks, and establish contractual and technical controls.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-6-1"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "GOVERN-6.2",
+          "title": "Are contingency processes in place for handling failures in third-party AI services (e.g., foundation model API outages) used by this solution?",
+          "description": "Contingency processes are in place to handle failures or incidents in third-party data or AI systems deemed high-risk.",
+          "choices": [
+            {
+              "id": "GOVERN-6.2",
+              "title": "Are contingency processes in place for handling failures in third-party AI services (e.g., foundation model API outages) used by this solution?",
+              "helpfulResource": {
+                "displayText": "Contingency processes are in place to handle failures or incidents in third-party data or AI systems deemed high-risk.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-6-2"
+              },
+              "improvementPlan": {
+                "displayText": "Develop contingency plans for third-party AI service failures including fallback models, cached responses, and graceful degradation.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/govern/#govern-6-2"
+              }
+            }
+          ],
+          "riskRules": []
+        }
+      ]
+    },
+    {
+      "id": "manage",
+      "name": "Manage",
+      "questions": [
+        {
+          "id": "MANAGE-1.1",
+          "title": "Was a formal go/no-go determination made before deploying this AI solution, based on whether it achieves its intended purposes within acceptable risk levels?",
+          "description": "A determination is made as to whether the AI system achieves its intended purposes and whether its development or deployment should proceed.",
+          "choices": [
+            {
+              "id": "MANAGE-1.1",
+              "title": "Was a formal go/no-go determination made before deploying this AI solution, based on whether it achieves its intended purposes within acceptable risk levels?",
+              "helpfulResource": {
+                "displayText": "A determination is made as to whether the AI system achieves its intended purposes and whether its development or deployment should proceed.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/manage/#manage-1-1"
+              },
+              "improvementPlan": {
+                "displayText": "Implement a formal deployment gate process with documented go/no-go criteria based on risk assessment, performance benchmarks, and stakeholder approval.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/manage/#manage-1-1"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "MANAGE-1.3",
+          "title": "Have responses to the highest-priority AI risks been developed and documented, with clear mitigation, transfer, avoidance, or acceptance decisions?",
+          "description": "Responses to high-priority AI risks are developed, planned, and documented. Options include mitigating, transferring, avoiding, or accepting.",
+          "choices": [
+            {
+              "id": "MANAGE-1.3",
+              "title": "Have responses to the highest-priority AI risks been developed and documented, with clear mitigation, transfer, avoidance, or acceptance decisions?",
+              "helpfulResource": {
+                "displayText": "Responses to high-priority AI risks are developed, planned, and documented. Options include mitigating, transferring, avoiding, or accepting.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/manage/#manage-1-3"
+              },
+              "improvementPlan": {
+                "displayText": "For each high-priority risk, document the chosen response strategy (mitigate, transfer, avoid, accept) with specific action plans and owners.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/manage/#manage-1-3"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "MANAGE-2.2",
+          "title": "Are mechanisms in place to sustain the value of this deployed AI solution over time (performance monitoring, retraining triggers, feedback loops)?",
+          "description": "Mechanisms are in place and applied to sustain the value of deployed AI systems.",
+          "choices": [
+            {
+              "id": "MANAGE-2.2",
+              "title": "Are mechanisms in place to sustain the value of this deployed AI solution over time (performance monitoring, retraining triggers, feedback loops)?",
+              "helpfulResource": {
+                "displayText": "Mechanisms are in place and applied to sustain the value of deployed AI systems.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/manage/#manage-2-2"
+              },
+              "improvementPlan": {
+                "displayText": "Implement value sustainment mechanisms including performance monitoring, automated retraining triggers, user feedback collection, and regular model evaluation.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/manage/#manage-2-2"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "MANAGE-2.4",
+          "title": "Are there mechanisms to quickly disengage or deactivate this AI solution if it demonstrates performance or outcomes inconsistent with intended use?",
+          "description": "Mechanisms are in place to supersede, disengage, or deactivate AI systems that demonstrate inconsistent performance or outcomes.",
+          "choices": [
+            {
+              "id": "MANAGE-2.4",
+              "title": "Are there mechanisms to quickly disengage or deactivate this AI solution if it demonstrates performance or outcomes inconsistent with intended use?",
+              "helpfulResource": {
+                "displayText": "Mechanisms are in place to supersede, disengage, or deactivate AI systems that demonstrate inconsistent performance or outcomes.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/manage/#manage-2-4"
+              },
+              "improvementPlan": {
+                "displayText": "Implement kill-switch mechanisms, traffic routing controls (aliases/versions), and documented procedures for emergency deactivation.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/manage/#manage-2-4"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "MANAGE-3.2",
+          "title": "Are the pre-trained foundation models used by this solution monitored for version changes, deprecation, and performance shifts?",
+          "description": "Pre-trained models used for development are monitored as part of regular AI system monitoring and maintenance.",
+          "choices": [
+            {
+              "id": "MANAGE-3.2",
+              "title": "Are the pre-trained foundation models used by this solution monitored for version changes, deprecation, and performance shifts?",
+              "helpfulResource": {
+                "displayText": "Pre-trained models used for development are monitored as part of regular AI system monitoring and maintenance.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/manage/#manage-3-2"
+              },
+              "improvementPlan": {
+                "displayText": "Track foundation model versions, subscribe to provider change notifications, and test against new model versions before adoption.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/manage/#manage-3-2"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "MANAGE-4.1",
+          "title": "Are post-deployment monitoring plans implemented for this solution, including incident response, recovery procedures, and change management?",
+          "description": "Post-deployment monitoring plans are implemented, including mechanisms for capturing user input, appeal and override, decommissioning, incident response, recovery, and change management.",
+          "choices": [
+            {
+              "id": "MANAGE-4.1",
+              "title": "Are post-deployment monitoring plans implemented for this solution, including incident response, recovery procedures, and change management?",
+              "helpfulResource": {
+                "displayText": "Post-deployment monitoring plans are implemented, including mechanisms for capturing user input, appeal and override, decommissioning, incident response, recovery, and change management.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/manage/#manage-4-1"
+              },
+              "improvementPlan": {
+                "displayText": "Implement comprehensive post-deployment monitoring with incident response runbooks, recovery procedures, change management processes, and user feedback mechanisms.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/manage/#manage-4-1"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "MANAGE-4.3",
+          "title": "Are there documented processes for communicating AI incidents and errors to relevant stakeholders and affected users?",
+          "description": "Incidents and errors are communicated to relevant AI actors, including affected communities. Processes for tracking, responding to, and recovering from incidents are followed and documented.",
+          "choices": [
+            {
+              "id": "MANAGE-4.3",
+              "title": "Are there documented processes for communicating AI incidents and errors to relevant stakeholders and affected users?",
+              "helpfulResource": {
+                "displayText": "Incidents and errors are communicated to relevant AI actors, including affected communities. Processes for tracking, responding to, and recovering from incidents are followed and documented.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/manage/#manage-4-3"
+              },
+              "improvementPlan": {
+                "displayText": "Establish incident communication procedures including stakeholder notification templates, escalation paths, and post-incident review processes.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/manage/#manage-4-3"
+              }
+            }
+          ],
+          "riskRules": []
+        }
+      ]
+    },
+    {
+      "id": "map",
+      "name": "Map",
+      "questions": [
+        {
+          "id": "MAP-1.1",
+          "title": "Are the intended purposes, target users, and deployment context of this AI solution documented, including potential positive and negative impacts?",
+          "description": "Intended purposes, beneficial uses, context-specific laws, norms, expectations, and prospective deployment settings are understood and documented.",
+          "choices": [
+            {
+              "id": "MAP-1.1",
+              "title": "Are the intended purposes, target users, and deployment context of this AI solution documented, including potential positive and negative impacts?",
+              "helpfulResource": {
+                "displayText": "Intended purposes, beneficial uses, context-specific laws, norms, expectations, and prospective deployment settings are understood and documented.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/map/#map-1-1"
+              },
+              "improvementPlan": {
+                "displayText": "Create a solution purpose document covering intended use cases, target users, deployment context, and anticipated impacts.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/map/#map-1-1"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "MAP-1.6",
+          "title": "Do the system requirements for this solution address socio-technical implications, including impacts on different user groups?",
+          "description": "System requirements are elicited from relevant AI actors. Design decisions take socio-technical implications into account.",
+          "choices": [
+            {
+              "id": "MAP-1.6",
+              "title": "Do the system requirements for this solution address socio-technical implications, including impacts on different user groups?",
+              "helpfulResource": {
+                "displayText": "System requirements are elicited from relevant AI actors. Design decisions take socio-technical implications into account.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/map/#map-1-6"
+              },
+              "improvementPlan": {
+                "displayText": "Review and update system requirements to include socio-technical considerations such as accessibility, equity, and user impact.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/map/#map-1-6"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "MAP-2.1",
+          "title": "Are the specific AI tasks (classification, generation, retrieval, agent orchestration) and methods used by this solution clearly defined and documented?",
+          "description": "The specific tasks and methods used to implement the tasks that the AI system will support are defined.",
+          "choices": [
+            {
+              "id": "MAP-2.1",
+              "title": "Are the specific AI tasks (classification, generation, retrieval, agent orchestration) and methods used by this solution clearly defined and documented?",
+              "helpfulResource": {
+                "displayText": "The specific tasks and methods used to implement the tasks that the AI system will support are defined.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/map/#map-2-1"
+              },
+              "improvementPlan": {
+                "displayText": "Document the AI methods and task types used, including model architectures, retrieval strategies, and orchestration patterns.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/map/#map-2-1"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "MAP-2.2",
+          "title": "Are the AI system's knowledge limits documented, and is it clear how humans oversee and utilize the system's output?",
+          "description": "Information about the AI system's knowledge limits and how output may be utilized and overseen by humans is documented.",
+          "choices": [
+            {
+              "id": "MAP-2.2",
+              "title": "Are the AI system's knowledge limits documented, and is it clear how humans oversee and utilize the system's output?",
+              "helpfulResource": {
+                "displayText": "Information about the AI system's knowledge limits and how output may be utilized and overseen by humans is documented.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/map/#map-2-2"
+              },
+              "improvementPlan": {
+                "displayText": "Document known limitations, knowledge boundaries, and the human oversight model (human-in-the-loop, human-on-the-loop, or human-in-command).",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/map/#map-2-2"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "MAP-3.5",
+          "title": "Are human oversight processes defined and documented for this solution, including when and how humans can intervene or override AI decisions?",
+          "description": "Processes for human oversight are defined, assessed, and documented in accordance with organizational policies.",
+          "choices": [
+            {
+              "id": "MAP-3.5",
+              "title": "Are human oversight processes defined and documented for this solution, including when and how humans can intervene or override AI decisions?",
+              "helpfulResource": {
+                "displayText": "Processes for human oversight are defined, assessed, and documented in accordance with organizational policies.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/map/#map-3-5"
+              },
+              "improvementPlan": {
+                "displayText": "Define and document human oversight mechanisms including intervention triggers, escalation paths, and override procedures.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/map/#map-3-5"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "MAP-4.1",
+          "title": "Have AI technology and legal risks been mapped for all components of this solution, including third-party models, data, and libraries?",
+          "description": "Approaches for mapping AI technology and legal risks of components, including third-party data or software, are in place and documented.",
+          "choices": [
+            {
+              "id": "MAP-4.1",
+              "title": "Have AI technology and legal risks been mapped for all components of this solution, including third-party models, data, and libraries?",
+              "helpfulResource": {
+                "displayText": "Approaches for mapping AI technology and legal risks of components, including third-party data or software, are in place and documented.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/map/#map-4-1"
+              },
+              "improvementPlan": {
+                "displayText": "Conduct a component-level risk assessment covering all third-party AI models, datasets, and software dependencies.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/map/#map-4-1"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "MAP-5.1",
+          "title": "Have the likelihood and magnitude of potential impacts (both beneficial and harmful) of this AI solution been assessed and documented?",
+          "description": "Likelihood and magnitude of each identified impact based on expected use are identified and documented.",
+          "choices": [
+            {
+              "id": "MAP-5.1",
+              "title": "Have the likelihood and magnitude of potential impacts (both beneficial and harmful) of this AI solution been assessed and documented?",
+              "helpfulResource": {
+                "displayText": "Likelihood and magnitude of each identified impact based on expected use are identified and documented.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/map/#map-5-1"
+              },
+              "improvementPlan": {
+                "displayText": "Conduct an impact assessment documenting potential harms and benefits, their likelihood, magnitude, and affected populations.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/map/#map-5-1"
+              }
+            }
+          ],
+          "riskRules": []
+        }
+      ]
+    },
+    {
+      "id": "measure",
+      "name": "Measure",
+      "questions": [
+        {
+          "id": "MEASURE-1.1",
+          "title": "Have specific metrics and measurement approaches been selected to assess the most significant AI risks for this solution?",
+          "description": "Approaches and metrics for measurement of AI risks are selected for implementation starting with the most significant risks.",
+          "choices": [
+            {
+              "id": "MEASURE-1.1",
+              "title": "Have specific metrics and measurement approaches been selected to assess the most significant AI risks for this solution?",
+              "helpfulResource": {
+                "displayText": "Approaches and metrics for measurement of AI risks are selected for implementation starting with the most significant risks.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-1-1"
+              },
+              "improvementPlan": {
+                "displayText": "Define measurable risk metrics (accuracy, fairness, robustness, latency) and implement measurement processes prioritized by risk significance.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-1-1"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "MEASURE-2.1",
+          "title": "Are test sets, evaluation metrics, and TEVV tools documented for this AI solution?",
+          "description": "Test sets, metrics, and details about the tools used during test, evaluation, verification, and validation (TEVV) are documented.",
+          "choices": [
+            {
+              "id": "MEASURE-2.1",
+              "title": "Are test sets, evaluation metrics, and TEVV tools documented for this AI solution?",
+              "helpfulResource": {
+                "displayText": "Test sets, metrics, and details about the tools used during test, evaluation, verification, and validation (TEVV) are documented.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-2-1"
+              },
+              "improvementPlan": {
+                "displayText": "Document all test datasets, evaluation metrics, and TEVV tools used. Include dataset characteristics, metric definitions, and tool versions.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-2-1"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "MEASURE-2.4",
+          "title": "Is the AI system's functionality and behavior actively monitored in production, including model performance, drift, and anomalies?",
+          "description": "The functionality and behavior of the AI system and its components are monitored when in production.",
+          "choices": [
+            {
+              "id": "MEASURE-2.4",
+              "title": "Is the AI system's functionality and behavior actively monitored in production, including model performance, drift, and anomalies?",
+              "helpfulResource": {
+                "displayText": "The functionality and behavior of the AI system and its components are monitored when in production.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-2-4"
+              },
+              "improvementPlan": {
+                "displayText": "Implement production monitoring covering model performance metrics, data drift detection, output quality tracking, and anomaly alerting.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-2-4"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "MEASURE-2.6",
+          "title": "Is this AI solution regularly evaluated for safety risks, and can it fail safely when operating beyond its knowledge limits?",
+          "description": "The AI system is evaluated regularly for safety risks. The system can fail safely, particularly if made to operate beyond its knowledge limits.",
+          "choices": [
+            {
+              "id": "MEASURE-2.6",
+              "title": "Is this AI solution regularly evaluated for safety risks, and can it fail safely when operating beyond its knowledge limits?",
+              "helpfulResource": {
+                "displayText": "The AI system is evaluated regularly for safety risks. The system can fail safely, particularly if made to operate beyond its knowledge limits.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-2-6"
+              },
+              "improvementPlan": {
+                "displayText": "Implement safety evaluation processes including adversarial testing, boundary testing, and graceful failure mechanisms (guardrails, fallbacks).",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-2-6"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "MEASURE-2.7",
+          "title": "Have the security and resilience of this AI solution been evaluated, including prompt injection resistance, data poisoning defenses, and adversarial robustness?",
+          "description": "AI system security and resilience are evaluated and documented.",
+          "choices": [
+            {
+              "id": "MEASURE-2.7",
+              "title": "Have the security and resilience of this AI solution been evaluated, including prompt injection resistance, data poisoning defenses, and adversarial robustness?",
+              "helpfulResource": {
+                "displayText": "AI system security and resilience are evaluated and documented.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-2-7"
+              },
+              "improvementPlan": {
+                "displayText": "Conduct security evaluations covering prompt injection, data poisoning, model extraction, and adversarial input testing. Document findings and mitigations.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-2-7"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "MEASURE-2.9",
+          "title": "Is the AI model's decision-making process explainable, and are outputs interpreted within their intended context with appropriate attribution?",
+          "description": "The AI model is explained, validated, and documented, and AI system output is interpreted within its context.",
+          "choices": [
+            {
+              "id": "MEASURE-2.9",
+              "title": "Is the AI model's decision-making process explainable, and are outputs interpreted within their intended context with appropriate attribution?",
+              "helpfulResource": {
+                "displayText": "The AI model is explained, validated, and documented, and AI system output is interpreted within its context.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-2-9"
+              },
+              "improvementPlan": {
+                "displayText": "Implement explainability mechanisms such as reasoning traces, source attribution, confidence scores, and decision documentation.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-2-9"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "MEASURE-2.10",
+          "title": "Has the privacy risk of this AI solution been examined, including PII handling, data minimization, and user consent?",
+          "description": "Privacy risk of the AI system is examined and documented.",
+          "choices": [
+            {
+              "id": "MEASURE-2.10",
+              "title": "Has the privacy risk of this AI solution been examined, including PII handling, data minimization, and user consent?",
+              "helpfulResource": {
+                "displayText": "Privacy risk of the AI system is examined and documented.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-2-10"
+              },
+              "improvementPlan": {
+                "displayText": "Conduct a privacy impact assessment. Implement PII detection/redaction, data minimization, encryption at rest and in transit, and consent mechanisms.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-2-10"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "MEASURE-2.11",
+          "title": "Has this AI solution been evaluated for fairness and bias across different user groups, with results documented?",
+          "description": "Fairness and bias are evaluated and results are documented.",
+          "choices": [
+            {
+              "id": "MEASURE-2.11",
+              "title": "Has this AI solution been evaluated for fairness and bias across different user groups, with results documented?",
+              "helpfulResource": {
+                "displayText": "Fairness and bias are evaluated and results are documented.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-2-11"
+              },
+              "improvementPlan": {
+                "displayText": "Conduct bias testing across demographic groups and use cases. Document findings, mitigations applied, and residual bias levels.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-2-11"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "MEASURE-2.12",
+          "title": "Has the environmental impact of this AI solution's training and inference workloads been assessed (energy consumption, carbon footprint)?",
+          "description": "Environmental impact and sustainability of AI model training and management activities are assessed and documented.",
+          "choices": [
+            {
+              "id": "MEASURE-2.12",
+              "title": "Has the environmental impact of this AI solution's training and inference workloads been assessed (energy consumption, carbon footprint)?",
+              "helpfulResource": {
+                "displayText": "Environmental impact and sustainability of AI model training and management activities are assessed and documented.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-2-12"
+              },
+              "improvementPlan": {
+                "displayText": "Assess and document the environmental footprint of AI workloads. Consider energy-efficient regions, right-sized models, and carbon-aware scheduling.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-2-12"
+              }
+            }
+          ],
+          "riskRules": []
+        },
+        {
+          "id": "MEASURE-3.1",
+          "title": "Are there mechanisms to regularly track and identify new or emergent AI risks for this solution over time?",
+          "description": "Approaches, personnel, and documentation are in place to regularly identify and track existing, unanticipated, and emergent AI risks.",
+          "choices": [
+            {
+              "id": "MEASURE-3.1",
+              "title": "Are there mechanisms to regularly track and identify new or emergent AI risks for this solution over time?",
+              "helpfulResource": {
+                "displayText": "Approaches, personnel, and documentation are in place to regularly identify and track existing, unanticipated, and emergent AI risks.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-3-1"
+              },
+              "improvementPlan": {
+                "displayText": "Establish a risk register with regular review cycles to track existing risks, identify emergent risks, and document risk evolution.",
+                "url": "https://airc.nist.gov/airmf-resources/playbook/measure/#measure-3-1"
+              }
+            }
+          ],
+          "riskRules": []
+        }
+      ]
+    }
+  ]
+}

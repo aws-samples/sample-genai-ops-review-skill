@@ -1,0 +1,183 @@
+{
+  "_comment": "Single source of truth for which sub-skill owns each check_id. The orchestrator uses this to verify that each pillar's batch covers exactly its set of owned IDs. Generated from check-registry.json by collapsing canonical_owner values 'WA:Security' and 'WA:Security (Resource)' into a single 'WA:Security' bucket (the resource-level checks are still assessed by the security sub-skill).",
+  "owners": {
+    "WA:Security": {
+      "sub_skill": "wa-review-security.md",
+      "ids": [
+        "GENSEC01_BP01",
+        "GENSEC01_BP02",
+        "GENSEC01_BP03",
+        "GENSEC01_BP04",
+        "GENSEC02_BP01",
+        "GENSEC03_BP01",
+        "GENSEC04_BP01",
+        "GENSEC04_BP02",
+        "GENSEC05_BP01",
+        "GENSEC06_BP01"
+      ]
+    },
+    "WA:Ops Excellence": {
+      "sub_skill": "wa-review-operational-excellence.md",
+      "ids": [
+        "GENOPS01_BP01",
+        "GENOPS01_BP02",
+        "GENOPS02_BP01",
+        "GENOPS02_BP02",
+        "GENOPS02_BP03",
+        "GENOPS03_BP01",
+        "GENOPS03_BP02",
+        "GENOPS04_BP01",
+        "GENOPS04_BP02",
+        "GENOPS05_BP01"
+      ]
+    },
+    "WA:Reliability": {
+      "sub_skill": "wa-review-reliability.md",
+      "ids": [
+        "GENREL01_BP01",
+        "GENREL02_BP01",
+        "GENREL03_BP01",
+        "GENREL03_BP02",
+        "GENREL04_BP01",
+        "GENREL04_BP02",
+        "GENREL05_BP01",
+        "GENREL05_BP02",
+        "GENREL05_BP03",
+        "GENREL06_BP01"
+      ]
+    },
+    "WA:Performance": {
+      "sub_skill": "wa-review-performance.md",
+      "ids": [
+        "GENPERF01_BP01",
+        "GENPERF01_BP02",
+        "GENPERF02_BP01",
+        "GENPERF02_BP02",
+        "GENPERF02_BP03",
+        "GENPERF03_BP01",
+        "GENPERF04_BP01",
+        "GENPERF04_BP02"
+      ]
+    },
+    "WA:Cost": {
+      "sub_skill": "wa-review-cost.md",
+      "ids": [
+        "GENCOST01_BP01",
+        "GENCOST02_BP01",
+        "GENCOST02_BP02",
+        "GENCOST03_BP01",
+        "GENCOST03_BP02",
+        "GENCOST03_BP03",
+        "GENCOST03_BP04",
+        "GENCOST04_BP01",
+        "GENCOST05_BP01"
+      ]
+    },
+    "WA:Sustainability": {
+      "sub_skill": "wa-review-sustainability.md",
+      "ids": [
+        "GENSUS01_BP01",
+        "GENSUS01_BP02",
+        "GENSUS02_BP01",
+        "GENSUS03_BP01"
+      ]
+    },
+    "NIST:Govern": {
+      "sub_skill": "nist-ai-rmf-assessment.md",
+      "ids": [
+        "GOVERN-1.1",
+        "GOVERN-1.2",
+        "GOVERN-1.3",
+        "GOVERN-1.4",
+        "GOVERN-1.5",
+        "GOVERN-1.6",
+        "GOVERN-1.7",
+        "GOVERN-2.1",
+        "GOVERN-2.2",
+        "GOVERN-2.3",
+        "GOVERN-4.3",
+        "GOVERN-6.1",
+        "GOVERN-6.2"
+      ]
+    },
+    "NIST:Map": {
+      "sub_skill": "nist-ai-rmf-assessment.md",
+      "ids": [
+        "MAP-1.1",
+        "MAP-1.6",
+        "MAP-2.1",
+        "MAP-2.2",
+        "MAP-3.5",
+        "MAP-4.1",
+        "MAP-5.1"
+      ]
+    },
+    "NIST:Measure": {
+      "sub_skill": "nist-ai-rmf-assessment.md",
+      "ids": [
+        "MEASURE-1.1",
+        "MEASURE-2.1",
+        "MEASURE-2.4",
+        "MEASURE-2.6",
+        "MEASURE-2.7",
+        "MEASURE-2.9",
+        "MEASURE-2.10",
+        "MEASURE-2.11",
+        "MEASURE-2.12",
+        "MEASURE-3.1"
+      ]
+    },
+    "NIST:Manage": {
+      "sub_skill": "nist-ai-rmf-assessment.md",
+      "ids": [
+        "MANAGE-1.1",
+        "MANAGE-1.3",
+        "MANAGE-2.2",
+        "MANAGE-2.4",
+        "MANAGE-3.2",
+        "MANAGE-4.1",
+        "MANAGE-4.3"
+      ]
+    },
+    "FinOps:Understand": {
+      "sub_skill": "finops-ai-assessment.md",
+      "ids": [
+        "FIN-UND-01",
+        "FIN-UND-02",
+        "FIN-UND-03",
+        "FIN-UND-04",
+        "FIN-UND-05"
+      ]
+    },
+    "FinOps:Quantify Business Value": {
+      "sub_skill": "finops-ai-assessment.md",
+      "ids": [
+        "FIN-QBV-01",
+        "FIN-QBV-02",
+        "FIN-QBV-03"
+      ]
+    },
+    "FinOps:Optimize": {
+      "sub_skill": "finops-ai-assessment.md",
+      "ids": [
+        "FIN-OPT-01",
+        "FIN-OPT-02",
+        "FIN-OPT-03",
+        "FIN-OPT-04",
+        "FIN-OPT-05",
+        "FIN-OPT-06",
+        "FIN-OPT-07"
+      ]
+    },
+    "FinOps:Manage": {
+      "sub_skill": "finops-ai-assessment.md",
+      "ids": [
+        "FIN-MGT-01",
+        "FIN-MGT-02",
+        "FIN-MGT-03",
+        "FIN-MGT-04",
+        "FIN-MGT-05"
+      ]
+    }
+  }
+}
