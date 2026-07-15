@@ -1,15 +1,16 @@
 ---
 name: aio2-review
 description: >
-  AI Operations & Optimization (AIO2) is used to review AWS GenAI workloads
-  against the AWS Well-Architected GenAI Lens, NIST AI Risk Management 
-  Framework, and/or FinOps Foundation FinOps for AI. Orchestrates a 
-  multi-framework review of Bedrock Agents and Bedrock AgentCore workloads. 
-  Accepts a Bedrock Agent ARN, CloudFormation/Terraform stack,
-  or Resource Groups as input. Coordinates framework-specific skills and
-  produces a unified prioritized gap analysis report.
-  Do NOT use for non-AWS reviews or general architecture advice.
-  Activate this skill when the user says "AIO2 review" or "AIO2".
+  AI Operations & Optimization (AIO2) is used to review AWS GenAI 
+  workloads against the AWS Well-Architected GenAI Lens, NIST AI 
+  Risk Management Framework, and FinOps Foundation FinOps for AI. 
+  The skill orchestrates a multi-framework review of Bedrock Agents 
+  and Bedrock AgentCore workloads. It accepts a Bedrock Agent ARN, 
+  CloudFormation/Terraform stack, or an AWS Resource Group as 
+  input, and coordinates framework-specific checks to produce a 
+  unified prioritized gap analysis report. Do NOT use for non-AWS 
+  reviews or general architecture advice. Activate this skill when 
+  the user says "AIO2 review", "AIO2", or "AI operations review".
 ---
 
 # AWS AI Operations & Optimization (AIO2) Multi-Framework Review — Orchestrator

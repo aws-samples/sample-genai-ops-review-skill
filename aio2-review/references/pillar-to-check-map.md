@@ -1,7 +1,7 @@
 
-# Brian's Strategic Blog: The Six Pillars → Check Mapping
+# The Six Pillars → Check Mapping
 
-The blog defines **six pillars** for an Operations GenAI Strategy:
+**Six Pillars** for an Operations GenAI Strategy:
 
 | # | Pillar | Core Focus |
 |---|--------|------------|

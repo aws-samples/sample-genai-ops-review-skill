@@ -1,6 +1,6 @@
 # AWS AIO2 Multi-Framework Review — Agent Skill
 
-AI Operations & Optimization (AIO2) is used to review AWS GenAI workloads against the AWS Well-Architected GenAI Lens, NIST AI Risk Management  Framework, and/or FinOps Foundation FinOps for AI. Orchestrates a  multi-framework review of Bedrock Agents and Bedrock AgentCore workloads.  Accepts a Bedrock Agent ARN, CloudFormation/Terraform stack, or Resource Groups as input. Coordinates framework-specific skills and produces a unified prioritized gap analysis report.
+AI Operations & Optimization (AIO2) is used to review AWS GenAI workloads against the AWS Well-Architected GenAI Lens, NIST AI Risk Management Framework, and FinOps Foundation FinOps for AI. The skill orchestrates a multi-framework review of Bedrock Agents and Bedrock AgentCore workloads. It accepts a Bedrock Agent ARN, CloudFormation/Terraform stack, or an AWS Resource Group as input, and coordinates framework-specific checks to produce a unified prioritized gap analysis report.
 
 AIO2 evaluates AWS Generative AI solutions against three authoritative frameworks:
 - [AWS Well-Architected Generative AI Lens](https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/generative-ai-lens.html)
@@ -15,7 +15,7 @@ Windsurf, Gemini CLI, OpenAI Codex, and others.
 
 - AWS CLI configured and authenticated with read access to the target account (see [Minimum IAM Permissions](#minimum-iam-permissions) for the required policy)
 - An AI agent IDE that supports the Agent Skills standard
-- Posix Bash 3.2+
+- POSIX Bash 3.2+
 - [jq](https://jqlang.github.io/jq/)
 
 ## Skill
@@ -42,7 +42,7 @@ The skill reads these files progressively during the review — they are not loa
 
 ## Installation
 
-Copy the aio2-review folder into your Agent's skills directory.
+Copy the aio2-review folder into your agent's skills directory.
 
 ### Kiro
 ```bash
