@@ -8,8 +8,7 @@ AIO2 evaluates AWS Generative AI solutions against three authoritative framework
 - [FinOps Foundation — FinOps for AI](https://www.finops.org/assets/) (AI Asset Library)
 
 Using the open [Agent Skills](https://agentskills.io/) standard. Works in any IDE
-that supports Agent Skills: Kiro, Cursor, Claude Code, VS Code (GitHub Copilot),
-Windsurf, Gemini CLI, OpenAI Codex, and others.
+that supports Agent Skills: Kiro, Cursor, Claude Code, and others.
 
 ## Prerequisites
 
@@ -367,7 +366,7 @@ arn:aws:iam::aws:policy/ReadOnlyAccess
 | # | Service | Actions | Purpose |
 |---|---------|:-------:|---------|
 | 1 | Amazon Bedrock | 10 | Guardrails, models, inference profiles, invocation logging |
-| 2 | Bedrock Agents | 13 | Agent config, KBs, flows, prompts, action groups |
+| 2 | Bedrock Agents (deprecated) | 13 | Agent config, KBs, flows, prompts, action groups |
 | 3 | Bedrock AgentCore | 9 | Runtimes, gateways, identities, memory, policies |
 | 4 | CloudFormation | 2 | Stack resources and templates |
 | 5 | IAM | 4 | Role policies and permissions |
